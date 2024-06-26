@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { cn } from "@/utils/cn";
-import { AnimatePresence, motion } from "framer-motion";
-import { ModeToggle } from "../ModeToggle";
+import Navbar from "../Navbar";
 
 export const BentoGrid = ({
     className,
@@ -37,7 +36,6 @@ export const BentoGridItem = ({
     icon?: React.ReactNode;
     id: number;
 }) => {
-    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
     const getGridColumn = (id: number) => {
         switch (id) {
@@ -93,21 +91,20 @@ export const BentoGridItem = ({
         return (
             <div
                 className={cn(
-                    "relative rounded-xl transition duration-700 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-white border border-transparent justify-between flex flex-col items-center",
+                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none p-4 dark:bg-[#0D1117] dark:border-white/[0.2] bg-white border border-transparent flex flex-col justify-center items-center",
                     getGridColumn(id),
                     getGridRow(id),
                     className
                 )}
             >
-                {title}
-                <ModeToggle />
+                <Navbar />
             </div>
         );
     }
     return (
         <div
             className={cn(
-                "relative rounded-xl group/bento transition duration-700 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-white border border-transparent justify-between flex flex-col",
+                "relative rounded-xl group/bento transition shadow-sm duration-700 dark:shadow-none p-4 dark:bg-[#0D1117] dark:border-white/[0.2] bg-white border border-transparent justify-between flex flex-col",
                 getGridColumn(id),
                 getGridRow(id),
                 className

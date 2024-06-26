@@ -40,7 +40,7 @@ export function ModeToggle() {
 
     return (
         <div
-            className="p-2 rounded-full w-12 h-12 flex items-center justify-center bg-gray-400 dark:bg-gray-700 shadow-md cursor-pointer"
+            className="p-4 rounded-full w-16 h-16 flex items-center justify-center bg-gray-600 dark:bg-gray-500 shadow-md cursor-pointer dark:hover:bg-purple-500 hover:bg-purple-700 transition-colors"
             onClick={handleToggle}
         >
             <AnimatePresence mode="wait" initial={false}>
