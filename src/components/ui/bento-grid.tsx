@@ -1,0 +1,132 @@
+import React, { useState } from "react";
+import { cn } from "@/utils/cn";
+import { AnimatePresence, motion } from "framer-motion";
+
+export const BentoGrid = ({
+    className,
+    children,
+}: {
+    className?: string;
+    children?: React.ReactNode;
+}) => {
+    return (
+        <div
+            className={cn(
+                "grid overflow-scroll grid-cols-1 gap-6 max-w-7xl mx-auto p-5 h-full md:grid-cols-6 md:grid-rows-5 md:overflow-hidden",
+                className
+            )}
+        >
+            {children}
+        </div>
+    );
+};
+
+export const BentoGridItem = ({
+    className,
+    title,
+    description,
+    header,
+    icon,
+    id,
+}: {
+    className?: string;
+    title?: string | React.ReactNode;
+    description?: string | React.ReactNode;
+    header?: React.ReactNode;
+    icon?: React.ReactNode;
+    id: number;
+}) => {
+    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+    const getGridColumn = (id: number) => {
+        switch (id) {
+            case 1:
+                return "md:col-span-2";
+            case 2:
+                return "md:col-span-2";
+            case 3:
+                return "md:col-span-1";
+            case 4:
+                return "md:col-span-1";
+            case 5:
+                return "md:col-span-4";
+            case 6:
+                return "md:col-span-1";
+            case 7:
+                return "md:col-span-2";
+            case 8:
+                return "md:col-span-1";
+            case 9:
+                return "md:col-span-2";
+            default:
+                return "md:col-span-1";
+        }
+    };
+
+    const getGridRow = (id: number) => {
+        switch (id) {
+            case 1:
+                return "md:row-span-2";
+            case 2:
+                return "md:row-span-2";
+            case 3:
+                return "md:row-span-2";
+            case 4:
+                return "md:row-span-5";
+            case 5:
+                return "md:row-span-1";
+            case 6:
+                return "md:row-span-1";
+            case 7:
+                return "md:row-span-2";
+            case 8:
+                return "md:row-span-2";
+            case 9:
+                return "md:row-span-2";
+            default:
+                return "md:row-span-1";
+        }
+    };
+
+    return (
+        <div
+            onMouseEnter={() => setHoveredIndex(id)}
+            onMouseLeave={() => setHoveredIndex(null)}
+            className={cn(
+                "relative rounded-xl group/bento transition duration-700 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-white border border-transparent justify-between flex flex-col",
+                getGridColumn(id),
+                getGridRow(id),
+                className
+            )}
+        >
+            {header}
+            <div className="group-hover/bento:translate-x-2 transition duration-200 relative z-10">
+                {icon}
+                <div className="font-sans font-bold text-neutral-600 dark:text-neutral-200 mb-2 mt-2">
+                    {title}
+                </div>
+                <div className="font-sans font-normal text-neutral-600 text-xs dark:text-neutral-300">
+                    {description}
+                </div>
+            </div>
+            <AnimatePresence>
+                {hoveredIndex === id && (
+                    <motion.span
+                        className="absolute top-0 left-0 inset-0 h-full w-full bg-black dark:bg-neutral-200 block rounded-xl -z-10"
+                        layout
+                        layoutId="hoverBackground"
+                        initial={{ opacity: 0 }}
+                        animate={{
+                            opacity: 1,
+                            transition: { duration: 0.15 },
+                        }}
+                        exit={{
+                            opacity: 0,
+                            transition: { duration: 0.15, delay: 0.2 },
+                        }}
+                    />
+                )}
+            </AnimatePresence>
+        </div>
+    );
+};
