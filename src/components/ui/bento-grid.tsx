@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { cn } from "@/utils/cn";
 import { AnimatePresence, motion } from "framer-motion";
+import { ModeToggle } from "../ModeToggle";
 
 export const BentoGrid = ({
     className,
@@ -88,10 +89,23 @@ export const BentoGridItem = ({
         }
     };
 
+    if (id === 4) {
+        return (
+            <div
+                className={cn(
+                    "relative rounded-xl transition duration-700 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-white border border-transparent justify-between flex flex-col items-center",
+                    getGridColumn(id),
+                    getGridRow(id),
+                    className
+                )}
+            >
+                {title}
+                <ModeToggle />
+            </div>
+        );
+    }
     return (
         <div
-            onMouseEnter={() => setHoveredIndex(id)}
-            onMouseLeave={() => setHoveredIndex(null)}
             className={cn(
                 "relative rounded-xl group/bento transition duration-700 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-white border border-transparent justify-between flex flex-col",
                 getGridColumn(id),
@@ -109,24 +123,6 @@ export const BentoGridItem = ({
                     {description}
                 </div>
             </div>
-            <AnimatePresence>
-                {hoveredIndex === id && (
-                    <motion.span
-                        className="absolute top-0 left-0 inset-0 h-full w-full bg-black dark:bg-neutral-200 block rounded-xl -z-10"
-                        layout
-                        layoutId="hoverBackground"
-                        initial={{ opacity: 0 }}
-                        animate={{
-                            opacity: 1,
-                            transition: { duration: 0.15 },
-                        }}
-                        exit={{
-                            opacity: 0,
-                            transition: { duration: 0.15, delay: 0.2 },
-                        }}
-                    />
-                )}
-            </AnimatePresence>
         </div>
     );
 };
