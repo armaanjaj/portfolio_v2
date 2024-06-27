@@ -3,6 +3,7 @@ import { cn } from "@/utils/cn";
 import Navbar from "../Navbar";
 import Location from "../Location";
 import SocialMedia from "../SocialMedia";
+import Newsletter from "../Newsletter";
 
 export const BentoGrid = ({
     className,
@@ -134,13 +135,13 @@ export const BentoGridItem = ({
         return (
             <div
                 className={cn(
-                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none w-full h-full dark:bg-[#0D1117] dark:border-white/[0.2] bg-white border border-transparent flex flex-col justify-center items-center overflow-hidden",
+                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none w-full h-full dark:border-white/[0.2] border border-transparent flex flex-col justify-center items-center overflow-hidden",
                     getGridColumn(id),
                     getGridRow(id),
                     className
                 )}
             >
-                {/* Newsletter here */}
+                <Newsletter />
             </div>
         );
     }

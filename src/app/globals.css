@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    font-feature-settings: normal;
+    font-family: TT Commons Pro, Arial, sans-serif;
+    font-variation-settings: normal;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    scroll-behavior: smooth;
+}

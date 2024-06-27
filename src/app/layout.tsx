@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Roboto_Condensed } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/utils/Provider";
 
-const inter = Inter({ subsets: ["latin"] });
+const robotoCondensed = Roboto_Condensed({
+    subsets: ["latin"],
+    weight: ["500"],
+    display: "swap",
+    preload: true,
+});
 
 export const metadata: Metadata = {
     title: "Armaan Jaj - Developer, Designer",
@@ -17,7 +22,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={inter.className}>
+            <body className={robotoCondensed.className}>
                 <ThemeProvider
                     attribute="class"
                     defaultTheme="light"
