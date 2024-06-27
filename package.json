@@ -12,12 +12,14 @@
     "@tabler/icons-react": "^3.7.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.2.12",
+    "mapbox-gl": "^3.4.0",
     "next": "14.2.4",
     "next-themes": "^0.3.0",
     "react": "^18",
     "react-beautiful-dnd": "^13.1.1",
     "react-dom": "^18",
     "react-icons": "^5.2.1",
+    "react-map-gl": "^7.1.7",
     "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {

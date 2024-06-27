@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { cn } from "@/utils/cn";
 import Navbar from "../Navbar";
+import Location from "../Location";
 
 export const BentoGrid = ({
     className,
@@ -36,7 +37,6 @@ export const BentoGridItem = ({
     icon?: React.ReactNode;
     id: number;
 }) => {
-
     const getGridColumn = (id: number) => {
         switch (id) {
             case 1:
@@ -98,6 +98,20 @@ export const BentoGridItem = ({
                 )}
             >
                 <Navbar />
+            </div>
+        );
+    }
+    if (id === 3) {
+        return (
+            <div
+                className={cn(
+                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none w-full h-full dark:bg-[#0D1117] dark:border-white/[0.2] bg-white border border-transparent flex flex-col justify-center items-center overflow-hidden",
+                    getGridColumn(id),
+                    getGridRow(id),
+                    className
+                )}
+            >
+                <Location />
             </div>
         );
     }
