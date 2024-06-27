@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { cn } from "@/utils/cn";
 import Navbar from "../Navbar";
 import Location from "../Location";
+import SocialMedia from "../SocialMedia";
 
 export const BentoGrid = ({
     className,
@@ -112,6 +113,34 @@ export const BentoGridItem = ({
                 )}
             >
                 <Location />
+            </div>
+        );
+    }
+    if (id === 8) {
+        return (
+            <div
+                className={cn(
+                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none w-full h-full dark:bg-[#0D1117] dark:border-white/[0.2] bg-white border border-transparent flex flex-col justify-center items-center overflow-hidden",
+                    getGridColumn(id),
+                    getGridRow(id),
+                    className
+                )}
+            >
+                <SocialMedia />
+            </div>
+        );
+    }
+    if (id === 9) {
+        return (
+            <div
+                className={cn(
+                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none w-full h-full dark:bg-[#0D1117] dark:border-white/[0.2] bg-white border border-transparent flex flex-col justify-center items-center overflow-hidden",
+                    getGridColumn(id),
+                    getGridRow(id),
+                    className
+                )}
+            >
+                {/* Newsletter here */}
             </div>
         );
     }
