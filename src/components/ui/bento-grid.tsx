@@ -5,6 +5,7 @@ import Location from "../Location";
 import SocialMedia from "../SocialMedia";
 import Newsletter from "../Newsletter";
 import { ProjectsCard } from "../ProjectsCard";
+import { DynamicProjectsCard } from "../DynamicProjectsCard";
 
 export const BentoGrid = ({
     className,
@@ -128,7 +129,7 @@ export const BentoGridItem = ({
                     className
                 )}
             >
-                <ProjectsCard />
+                <DynamicProjectsCard />
             </div>
         );
     }
