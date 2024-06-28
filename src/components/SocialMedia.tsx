@@ -8,28 +8,28 @@ const SocialMedia = () => {
             <Link
                 href="https://www.linkedin.com/in/yourprofile"
                 aria-label="LinkedIn"
-                className="rounded-full bg-gray-600 p-2 text-white hover:bg-purple-600 transition-colors duration-300 text-xl"
+                className="rounded-full bg-gray-900 p-2 text-white hover:bg-purple-600 transition-colors duration-300 text-xl"
             >
                 <FaLinkedin />
             </Link>
             <Link
                 href="https://www.instagram.com/yourprofile"
                 aria-label="Instagram"
-                className="rounded-full bg-gray-600 p-2 text-white hover:bg-purple-600 transition-colors duration-300 text-xl"
+                className="rounded-full bg-gray-900 p-2 text-white hover:bg-purple-600 transition-colors duration-300 text-xl"
             >
                 <FaInstagram />
             </Link>
             <Link
                 href="https://www.github.com/yourprofile"
                 aria-label="GitHub"
-                className="rounded-full bg-gray-600 p-2 text-white hover:bg-purple-600 transition-colors duration-300 text-xl"
+                className="rounded-full bg-gray-900 p-2 text-white hover:bg-purple-600 transition-colors duration-300 text-xl"
             >
                 <FaGithub />
             </Link>
             <Link
                 href="mailto:youremail@example.com"
                 aria-label="Email"
-                className="rounded-full bg-gray-600 p-2 text-white hover:bg-purple-600 transition-colors duration-300 text-xl"
+                className="rounded-full bg-gray-900 p-2 text-white hover:bg-purple-600 transition-colors duration-300 text-xl"
             >
                 <FaEnvelope />
             </Link>

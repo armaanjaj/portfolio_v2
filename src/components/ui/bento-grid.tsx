@@ -4,6 +4,7 @@ import Navbar from "../Navbar";
 import Location from "../Location";
 import SocialMedia from "../SocialMedia";
 import Newsletter from "../Newsletter";
+import { ProjectsCard } from "../ProjectsCard";
 
 export const BentoGrid = ({
     className,
@@ -114,6 +115,20 @@ export const BentoGridItem = ({
                 )}
             >
                 <Location />
+            </div>
+        );
+    }
+    if (id === 7) {
+        return (
+            <div
+                className={cn(
+                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none w-full h-full  dark:border-white/[0.2] border border-transparent flex flex-col justify-center items-center overflow-hidden",
+                    getGridColumn(id),
+                    getGridRow(id),
+                    className
+                )}
+            >
+                <ProjectsCard />
             </div>
         );
     }

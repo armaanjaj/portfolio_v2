@@ -14,7 +14,7 @@ const Newsletter = () => {
     };
 
     return (
-        <div className="p-6 dark:bg-[#F7F2F2] bg-[#0D1117] rounded-lg shadow-md w-full h-full max-w-md">
+        <div className="p-6 dark:bg-[#F7F2F2] bg-gray-900 rounded-lg shadow-md w-full h-full max-w-md">
             <h2 className="text-2xl font-semibold dark:text-gray-800 text-gray-200 mb-4">
                 Subscribe to my Newsletter
             </h2>
@@ -40,7 +40,7 @@ const Newsletter = () => {
                             title="Subscribe"
                             icon={<FaLocationArrow />}
                             position="right"
-                            otherClasses="dark:bg-[#F7F2F2] bg-[#0D1117] dark:text-gray-800 text-gray-200"
+                            otherClasses="dark:bg-[#F7F2F2] bg-gray-900 dark:text-gray-800 text-gray-200"
                         />
                     </a>
                 </form>

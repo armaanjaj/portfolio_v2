@@ -9,8 +9,8 @@ import Map, { MapRef } from "react-map-gl";
 const MAX_ZOOM = 10;
 const MIN_ZOOM = 4;
 const INITIAL_VIEW_STATE = {
-    latitude: 51.0447,
-    longitude: -114.0719,
+    latitude: 51.048583,
+    longitude: -114.056033,
     zoom: MAX_ZOOM,
 };
 
@@ -64,7 +64,7 @@ export default function Location() {
                     <div className="absolute inset-x-3 bottom-3 flex items-center justify-between">
                         <button
                             className={cn(
-                                "bg-black bg-opacity-50 backdrop-blur rounded-full p-2 text-white",
+                                "bg-black bg-opacity-50 backdrop-blur-[2px] rounded-full p-2 text-white",
                                 currentZoom === MIN_ZOOM
                                     ? "invisible"
                                     : "cancel-drag"
@@ -77,7 +77,7 @@ export default function Location() {
                         </button>
                         <button
                             className={cn(
-                                "bg-black bg-opacity-50 backdrop-blur rounded-full p-2 text-white",
+                                "bg-black bg-opacity-50 backdrop-blur-[2px] rounded-full p-2 text-white",
                                 currentZoom === MAX_ZOOM
                                     ? "invisible"
                                     : "cancel-drag"
