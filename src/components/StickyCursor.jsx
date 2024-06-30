@@ -48,7 +48,9 @@ const StickyCursor = () => {
 
                     top: smoothMouse.y,
                 }}
-                className={`fixed z-[1] w-40 h-40 ${theme === "dark" ? "bg-gray-500" : "bg-gray-600"} rounded-full pointer-events-none`}
+                className={`fixed z-[1] w-40 h-40 ${
+                    theme === "dark" ? "bg-gray-500" : "bg-gray-600"
+                } rounded-full pointer-events-none hidden md:block`}
             ></motion.div>
         </div>
     );

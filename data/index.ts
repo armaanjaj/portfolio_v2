@@ -10,6 +10,17 @@ import {
     ReactIcon,
     TSIcon,
     FramermotionIcon,
+    CIcon,
+    ExpressjsIcon,
+    FigmaIcon,
+    GithubIcon,
+    JavaIcon,
+    KotlinIcon,
+    MUIIcon,
+    MySQLIcon,
+    NodejsIcon,
+    PhpIcon,
+    PythonIcon,
 } from "@/utils/icons";
 
 export const navLinks = [
@@ -32,6 +43,7 @@ export const projects = [
             "https://github.com/armaanjaj/we-dd-mern",
         ],
         iconLists: [NextJSIcon, TailwindCSSIcon, JSIcon, MongoDBIcon],
+        colors: ["#e5552a", "#FFFFFF", "#fffff0"],
     },
     {
         id: 2,
@@ -40,6 +52,7 @@ export const projects = [
         img: "/p2.png",
         links: ["", "https://github.com/armaanjaj/myinventory"],
         iconLists: [ReactIcon, TailwindCSSIcon, JSIcon, MongoDBIcon],
+        colors: ["#70faff", "#000000", "#64748B"],
     },
     {
         id: 3,
@@ -51,6 +64,7 @@ export const projects = [
             "https://github.com/armaanjaj/portfolio_v1",
         ],
         iconLists: [NextJSIcon, TailwindCSSIcon, TSIcon, FramermotionIcon],
+        colors: ["#ffd84d", "#000000", "#546173"],
     },
     {
         id: 4,
@@ -62,6 +76,7 @@ export const projects = [
             "https://github.com/armaanjaj/sumit-nanda-real-estate",
         ],
         iconLists: [NextJSIcon, TailwindCSSIcon, TSIcon, FramermotionIcon],
+        colors: ["#ff2e2e", "#FFFFFF", "#d9dde3"],
     },
     {
         id: 5,
@@ -70,5 +85,112 @@ export const projects = [
         img: "/p5.png",
         links: ["https://www.morningstarcontractors.ca/", ""],
         iconLists: [NextJSIcon, TailwindCSSIcon, TSIcon, FramermotionIcon],
+        colors: ["#FEE071", "#1F2937", "#64748B"],
+    },
+];
+
+export const skills = [
+    {
+        sectionId: 1,
+        sectionTitle: "Langs",
+        content: [
+            {
+                title: "JavaScript",
+                logo: JSIcon,
+            },
+            {
+                title: "TypeScript",
+                logo: TSIcon,
+            },
+            {
+                title: "C",
+                logo: CIcon,
+            },
+            {
+                title: "Java",
+                logo: JavaIcon,
+            },
+            {
+                title: "Kotlin",
+                logo: KotlinIcon,
+            },
+            {
+                title: "PHP",
+                logo: PhpIcon,
+            },
+            {
+                title: "Python",
+                logo: PythonIcon,
+            },
+        ],
+    },
+    {
+        sectionId: 2,
+        sectionTitle: "Front-end",
+        content: [
+            {
+                title: "NextJS",
+                logo: NextJSIcon,
+            },
+            {
+                title: "TailwindCSS",
+                logo: TailwindCSSIcon,
+            },
+            {
+                title: "React",
+                logo: ReactIcon,
+            },
+
+            {
+                title: "Framer Motion",
+                logo: FramermotionIcon,
+            },
+            {
+                title: "Material UI",
+                logo: MUIIcon,
+            },
+        ],
+    },
+    {
+        sectionId: 3,
+        sectionTitle: "Back-end",
+        content: [
+            {
+                title: "Express.js",
+                logo: ExpressjsIcon,
+            },
+            {
+                title: "Node.js",
+                logo: NodejsIcon,
+            },
+        ],
+    },
+    {
+        sectionId: 4,
+        sectionTitle: "Databases",
+        content: [
+            {
+                title: "MySQL",
+                logo: MySQLIcon,
+            },
+            {
+                title: "MongoDB",
+                logo: MongoDBIcon,
+            },
+        ],
+    },
+    {
+        sectionId: 5,
+        sectionTitle: "Tools",
+        content: [
+            {
+                title: "Figma",
+                logo: FigmaIcon,
+            },
+            {
+                title: "GitHub",
+                logo: GithubIcon,
+            },
+        ],
     },
 ];

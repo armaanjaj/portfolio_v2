@@ -1,71 +1,43 @@
-import * as React from "react";
-import { useTheme } from "next-themes";
-import { motion, AnimatePresence } from "framer-motion";
-import { MdSunny } from "react-icons/md";
-import { WiMoonWaxingCrescent3 } from "react-icons/wi";
+'use client';
 
-export function ModeToggle() {
-    const { setTheme, theme } = useTheme();
+import * as React from 'react';
+import { useTheme } from 'next-themes';
+import { motion } from 'framer-motion';
+import { MdSunny } from 'react-icons/md';
+import { WiMoonWaxingCrescent3 } from 'react-icons/wi';
+import { useEffect, useState } from 'react';
+
+export default function ModeToggle() {
+    const [isMounted, setIsMounted] = useState(false);
+    const { theme, setTheme } = useTheme();
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
 
     const handleToggle = () => {
-        setTheme(theme === "dark" ? "light" : "dark");
+        setTheme(theme === 'dark' ? 'light' : 'dark');
     };
 
-    const toggleVariants = {
-        initial: {
-            scale: 0.5,
-            rotate: 90,
-            opacity: 0,
-        },
-        animate: {
-            scale: 1,
-            rotate: 0,
-            opacity: 1,
-            transition: {
-                type: "spring",
-                stiffness: 700,
-                damping: 30,
-            },
-        },
-        exit: {
-            scale: 0.5,
-            rotate: -90,
-            opacity: 0,
-            transition: {
-                duration: 0.5,
-                ease: "easeInOut",
-            },
-        },
-    };
+    if (!isMounted) return null;
 
     return (
         <div
-            className="p-4 rounded-full w-16 h-16 flex items-center justify-center bg-gray-600 dark:bg-gray-500 shadow-md cursor-pointer dark:hover:bg-purple-500 hover:bg-purple-700 transition-colors"
+            className="relative h-12 w-12 flex items-center justify-center bg-gray-600 dark:bg-gray-500 rounded-full cursor-pointer text-2xl"
             onClick={handleToggle}
         >
-            <AnimatePresence mode="wait" initial={false}>
-                {theme === "dark" ? (
-                    <motion.div
-                        key="light"
-                        variants={toggleVariants}
-                        initial="initial"
-                        animate="animate"
-                        exit="exit"
-                    >
-                        <MdSunny className="text-yellow-500 w-8 h-8" />
-                    </motion.div>
+            <motion.div
+                key={theme}
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3 }}
+            >
+                {theme === 'dark' ? (
+                    <MdSunny className="text-yellow-500" />
                 ) : (
-                    <motion.div
-                        key="dark"
-                        variants={toggleVariants}
-                        initial="initial"
-                        animate="animate"
-                        exit="exit"
-                    >
-                        <WiMoonWaxingCrescent3 className="text-gray-100 rotate-45 -translate-x-[2px] -translate-y-[2px] w-8 h-8" />
-                    </motion.div>
+                    <WiMoonWaxingCrescent3 className="text-gray-100 -ml-1 -mt-1 rotate-45" />
                 )}
-            </AnimatePresence>
+            </motion.div>
         </div>
     );
 }

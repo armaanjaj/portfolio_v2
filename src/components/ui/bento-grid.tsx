@@ -4,8 +4,9 @@ import Navbar from "../Navbar";
 import Location from "../Location";
 import SocialMedia from "../SocialMedia";
 import Newsletter from "../Newsletter";
-import { ProjectsCard } from "../ProjectsCard";
 import { DynamicProjectsCard } from "../DynamicProjectsCard";
+import { Meteors } from "./meteors";
+import Skills from "../Skills";
 
 export const BentoGrid = ({
     className,
@@ -17,7 +18,7 @@ export const BentoGrid = ({
     return (
         <div
             className={cn(
-                "grid overflow-scroll grid-cols-1 gap-6 max-w-7xl mx-auto p-5 h-full md:grid-cols-6 md:grid-rows-5 md:overflow-hidden",
+                "grid overflow-x-hidden overflow-y-auto grid-cols-1 gap-6 max-w-7xl mx-auto p-5 h-full md:grid-cols-6 md:grid-rows-5 md:overflow-hidden",
                 className
             )}
         >
@@ -116,6 +117,21 @@ export const BentoGridItem = ({
                 )}
             >
                 <Location />
+            </div>
+        );
+    }
+    if (id === 5) {
+        return (
+            <div
+                className={cn(
+                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none w-full h-full  dark:border-white/[0.2] border border-transparent flex flex-col justify-center items-center overflow-hidden bg-gray-900 z-0",
+                    getGridColumn(id),
+                    getGridRow(id),
+                    className
+                )}
+            >
+                <Skills />
+                <Meteors className="z-[1]" number={20} />
             </div>
         );
     }

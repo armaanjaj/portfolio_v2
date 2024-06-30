@@ -23,6 +23,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={robotoCondensed.className}>
+            {/* <body> */}
                 <ThemeProvider
                     attribute="class"
                     defaultTheme="light"
