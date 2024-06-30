@@ -141,7 +141,7 @@ export const BentoGridItem = ({
         return (
             <div
                 className={cn(
-                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none p-4 dark:bg-[#0D1117] dark:border-white/[0.2] bg-white border border-transparent flex flex-col justify-center items-center",
+                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none dark:bg-[#0D1117] dark:border-white/[0.2] bg-white border border-transparent flex flex-col justify-center items-center",
                     getGridColumn(id),
                     getGridRow(id),
                     className
