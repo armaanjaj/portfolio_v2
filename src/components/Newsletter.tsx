@@ -43,7 +43,7 @@ const Newsletter = () => {
                             otherClasses="dark:hover:bg-[#ffffff] dark:bg-[#F7F2F2] hover:bg-gray-800 transition-colors bg-gray-900 dark:text-gray-800 text-gray-200"
                         />
                     </a> */}
-                    <button type="submit" className="px-6 py-2 rounded-3xl dark:bg-[#ffffff] hover:bg-gray-800 transition-colors bg-gray-900 dark:text-gray-800 text-gray-200 w-fit border-2 flex flex-row justify-center items-center gap-2 flex-nowrap">
+                    <button type="submit" className="px-6 py-2 rounded-3xl bg-[#ffffff] hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors dark:bg-gray-900 text-gray-800 dark:text-gray-200 w-fit border flex flex-row justify-center items-center gap-2 flex-nowrap">
                         Subscribe <IoSend  />
                     </button>
                 </form>

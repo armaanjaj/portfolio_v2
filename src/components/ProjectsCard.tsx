@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import Image from "next/image";
-import { AnimatedTooltip } from "./ui/animated-tooltip";
+import { AnimatedTooltip } from "./ui/avatars";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa6";

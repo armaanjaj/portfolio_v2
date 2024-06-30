@@ -21,6 +21,11 @@ import {
     NodejsIcon,
     PhpIcon,
     PythonIcon,
+    InstagramIcon,
+    LinkedinIcon,
+    MailIcon,
+    SocialGitHubIcon,
+    ProjectNextJSIcon,
 } from "@/utils/icons";
 
 export const navLinks = [
@@ -42,7 +47,7 @@ export const projects = [
             "https://we-dd.vercel.app/",
             "https://github.com/armaanjaj/we-dd-mern",
         ],
-        iconLists: [NextJSIcon, TailwindCSSIcon, JSIcon, MongoDBIcon],
+        iconLists: [ProjectNextJSIcon, TailwindCSSIcon, JSIcon, MongoDBIcon],
         colors: ["#e5552a", "#FFFFFF", "#fffff0"],
     },
     {
@@ -63,7 +68,7 @@ export const projects = [
             "https://www.armaancodes.com/v1",
             "https://github.com/armaanjaj/portfolio_v1",
         ],
-        iconLists: [NextJSIcon, TailwindCSSIcon, TSIcon, FramermotionIcon],
+        iconLists: [ProjectNextJSIcon, TailwindCSSIcon, TSIcon, FramermotionIcon],
         colors: ["#ffd84d", "#000000", "#546173"],
     },
     {
@@ -75,7 +80,7 @@ export const projects = [
             "https://www.sumitnanda.ca/",
             "https://github.com/armaanjaj/sumit-nanda-real-estate",
         ],
-        iconLists: [NextJSIcon, TailwindCSSIcon, TSIcon, FramermotionIcon],
+        iconLists: [ProjectNextJSIcon, TailwindCSSIcon, TSIcon, FramermotionIcon],
         colors: ["#ff2e2e", "#FFFFFF", "#d9dde3"],
     },
     {
@@ -84,7 +89,7 @@ export const projects = [
         des: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..",
         img: "/p5.png",
         links: ["https://www.morningstarcontractors.ca/", ""],
-        iconLists: [NextJSIcon, TailwindCSSIcon, TSIcon, FramermotionIcon],
+        iconLists: [ProjectNextJSIcon, TailwindCSSIcon, TSIcon, FramermotionIcon],
         colors: ["#FEE071", "#1F2937", "#64748B"],
     },
 ];
@@ -192,5 +197,37 @@ export const skills = [
                 logo: GithubIcon,
             },
         ],
+    },
+];
+
+export const socialLinks = [
+    {
+        href: "https://www.linkedin.com/in/connectarmaan",
+        label: "LinkedIn",
+        target: "_blank",
+        icon: LinkedinIcon,
+        className: "",
+    },
+    {
+        href: "https://www.instagram.com/armaan_jaj",
+        label: "Instagram",
+        target: "_blank",
+        icon: InstagramIcon,
+        className: "",
+    },
+    {
+        href: "https://www.github.com/armaanjaj",
+        label: "GitHub",
+        target: "_blank",
+        icon: SocialGitHubIcon,
+        className: "",
+    },
+    {
+        href: "armaansjaj0129@gmail.com",
+        label: "Email",
+        target: "",
+        icon: MailIcon,
+        className: "",
+        isCopy: true,
     },
 ];

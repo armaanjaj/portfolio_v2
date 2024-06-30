@@ -1,39 +1,125 @@
 import Link from "next/link";
-import React from "react";
-import { FaEnvelope, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { BackgroundGradientAnimation } from "./ui/background-gradient-animation";
+import { socialLinks } from "../../data";
 
 const SocialMedia = () => {
     return (
-        <div className="flex flex-col justify-center items-center gap-2 scale-125 max-h-fit">
-            <Link
-                href="https://www.linkedin.com/in/yourprofile"
-                aria-label="LinkedIn"
-                className="rounded-full bg-gray-900 p-2 text-white hover:bg-purple-600 transition-colors duration-300 text-xl"
+        <BackgroundGradientAnimation className="grid grid-cols-2 grid-rows-2 gap-0 w-full h-full py-14 px-10">
+            <div className="absolute -left-1 -bottom-4 text-4xl z-0 text-white opacity-40 font-bold uppercase">
+                <span>socials</span>
+            </div>
+
+            {socialLinks.map(
+                ({ href, label, target, icon: Icon, className, isCopy }, i) => (
+                    <StyledSocialLinks
+                        key={i}
+                        href={href}
+                        label={label}
+                        target={target}
+                        className={className}
+                        isCopy={isCopy}
+                    >
+                        <Icon />
+                    </StyledSocialLinks>
+                )
+            )}
+        </BackgroundGradientAnimation>
+    );
+};
+
+const StyledSocialLinks = ({
+    children,
+    label,
+    href,
+    target,
+    className,
+    isCopy,
+}: {
+    children: React.ReactNode;
+    label: string;
+    target: string;
+    href: string;
+    className?: string;
+    isCopy?: boolean;
+}) => {
+    const [hovered, setHovered] = useState(false);
+    const [copied, setCopied] = useState(false);
+
+    const handleCopy = () => {
+        navigator.clipboard.writeText(href);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000); // Hide confirmation after 2 seconds
+    };
+
+    if (isCopy) {
+        return (
+            <button
+                aria-label={label}
+                onClick={handleCopy}
+                className={`relative group rounded-full w-fit mx-auto bg-gray-900 p-2 text-white hover:bg-gray-800 transition-colors duration-300 text-3xl ${className}`}
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
             >
-                <FaLinkedin />
-            </Link>
-            <Link
-                href="https://www.instagram.com/yourprofile"
-                aria-label="Instagram"
-                className="rounded-full bg-gray-900 p-2 text-white hover:bg-purple-600 transition-colors duration-300 text-xl"
-            >
-                <FaInstagram />
-            </Link>
-            <Link
-                href="https://www.github.com/yourprofile"
-                aria-label="GitHub"
-                className="rounded-full bg-gray-900 p-2 text-white hover:bg-purple-600 transition-colors duration-300 text-xl"
-            >
-                <FaGithub />
-            </Link>
-            <Link
-                href="mailto:youremail@example.com"
-                aria-label="Email"
-                className="rounded-full bg-gray-900 p-2 text-white hover:bg-purple-600 transition-colors duration-300 text-xl"
-            >
-                <FaEnvelope />
-            </Link>
-        </div>
+                {children}
+                <AnimatePresence>
+                    {hovered && !copied && (
+                        <motion.div
+                            initial={{ opacity: 0, y: 10, scale: 0.6 }}
+                            animate={{
+                                opacity: 1,
+                                y: 0,
+                                scale: 1,
+                                transition: {
+                                    type: "spring",
+                                    stiffness: 260,
+                                    damping: 10,
+                                },
+                            }}
+                            exit={{ opacity: 0, y: 10, scale: 0.6 }}
+                            className="absolute top-10 left-0 transform -translate-x-1/2 mt-2 flex flex-col items-center justify-center rounded-md bg-black z-50 shadow-xl px-4 py-2"
+                        >
+                            <div className="font-bold text-white relative z-30 text-sm">
+                                Copy to clipboard
+                            </div>
+                        </motion.div>
+                    )}
+                    {copied && (
+                        <motion.div
+                            initial={{ opacity: 0, y: 10, scale: 0.6 }}
+                            animate={{
+                                opacity: 1,
+                                y: 0,
+                                scale: 1,
+                                transition: {
+                                    type: "spring",
+                                    stiffness: 260,
+                                    damping: 10,
+                                },
+                            }}
+                            exit={{ opacity: 0, y: 10, scale: 0.6 }}
+                            className="absolute top-10 left-0 transform -translate-x-1/2 mt-2 flex flex-col items-center justify-center rounded-md bg-green-500 z-50 shadow-xl px-4 py-2"
+                        >
+                            <div className="font-bold text-white relative z-30 text-base">
+                                Copied!
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </button>
+        );
+    }
+
+    return (
+        <Link
+            href={href}
+            aria-label={label}
+            target={target}
+            className={`rounded-full w-fit mx-auto bg-gray-900 p-2 text-white hover:bg-gray-800 transition-colors duration-300 text-3xl ${className}`}
+        >
+            {children}
+        </Link>
     );
 };
 
