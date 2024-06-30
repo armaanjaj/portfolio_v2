@@ -9,11 +9,34 @@ const BlogsSection = () => {
     const [currentBlog, setCurrentBlog] = useState(0);
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentBlog((prev) => (prev + 1) % blogs.length);
-        }, 5000);
+        let interval: NodeJS.Timeout;
 
-        return () => clearInterval(interval);
+        const startInterval = () => {
+            interval = setInterval(() => {
+                setCurrentBlog((prev) => (prev + 1) % blogs.length);
+            }, 5000);
+        };
+
+        const clearExistingInterval = () => {
+            if (interval) clearInterval(interval);
+        };
+
+        const handleVisibilityChange = () => {
+            if (document.visibilityState === "visible") {
+                startInterval();
+            } else {
+                clearExistingInterval();
+            }
+        };
+
+        document.addEventListener("visibilitychange", handleVisibilityChange);
+
+        startInterval();
+
+        return () => {
+            clearExistingInterval();
+            document.removeEventListener("visibilitychange", handleVisibilityChange);
+        };
     }, []);
 
     const imageVariants = {

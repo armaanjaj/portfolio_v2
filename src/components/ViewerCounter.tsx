@@ -40,6 +40,7 @@ const ViewerCounter = () => {
                 setViewerNumber(decoded.viewerNumber.toString() || "");
                 Cookies.set("viewer_token", data.token, { expires: 1 / 48 });
             } catch (error) {
+                console.error("Error fetching viewer number:", error);
                 setViewerNumber("");
             }
         };
@@ -51,8 +52,14 @@ const ViewerCounter = () => {
         } else {
             try {
                 const decoded: DecodedToken = jwtDecode(token);
-                setViewerNumber(decoded.viewerNumber?.toString() || "");
+                const currentTime = Date.now() / 1000;
+                if (decoded.exp < currentTime) {
+                    fetchViewerNumber();
+                } else {
+                    setViewerNumber(decoded.viewerNumber.toString() || "");
+                }
             } catch (error) {
+                console.error("Error decoding token:", error);
                 setViewerNumber("");
             }
         }
@@ -60,19 +67,21 @@ const ViewerCounter = () => {
 
     return (
         <div className="px-3 py-2 flex flex-col justify-center items-center gap-2">
-            <div className="text-center">
-                {viewerNumber ? (
-                    <p className="font-semibold text-green-400 text-md">
-                        {`You are the ${viewerNumber}${getOrdinalSuffix(
-                            Number(viewerNumber)
-                        )} viewer.`}
-                    </p>
-                ) : (
-                    <Loader />
-                )}
-            </div>
+            {viewerNumber != "" && (
+                <div className="text-center">
+                    {viewerNumber ? (
+                        <p className="font-semibold text-green-400 text-md">
+                            {`You are the ${viewerNumber}${getOrdinalSuffix(
+                                Number(viewerNumber)
+                            )} viewer.`}
+                        </p>
+                    ) : (
+                        <Loader />
+                    )}
+                </div>
+            )}
             <span className="text-sm text-gray-300">
-                I hope you are liking it.
+                I hope you are liking it here.
             </span>
         </div>
     );

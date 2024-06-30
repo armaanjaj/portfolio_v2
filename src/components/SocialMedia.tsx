@@ -66,19 +66,20 @@ const StyledSocialLinks = ({
                 <AnimatePresence>
                     {hovered && !copied && (
                         <motion.div
-                            initial={{ opacity: 0, y: 10, scale: 0.6 }}
+                            initial={{ opacity: 0, x: -10, y: -10, scale: 0.6 }}
                             animate={{
                                 opacity: 1,
+                                x: 0,
                                 y: 0,
                                 scale: 1,
                                 transition: {
                                     type: "spring",
-                                    stiffness: 260,
-                                    damping: 10,
+                                    stiffness: 1000,
+                                    damping: 100,
                                 },
                             }}
-                            exit={{ opacity: 0, y: 10, scale: 0.6 }}
-                            className="absolute top-10 left-2 transform -translate-x-1/2 mt-2 flex flex-col items-center justify-center rounded-tl-none rounded-xl bg-black z-50 shadow-xl px-4 py-2"
+                            exit={{ opacity: 0, x: -10, y: -10, scale: 0.6 }}
+                            className="absolute top-10 left-2 transform -translate-x-1/2 mt-2 flex flex-col items-center justify-center rounded-tl-none rounded-md bg-black z-50 shadow-xl px-4 py-2"
                         >
                             <div className="font-bold text-white relative z-30 text-sm">
                                 Copy to clipboard
@@ -87,19 +88,20 @@ const StyledSocialLinks = ({
                     )}
                     {copied && (
                         <motion.div
-                            initial={{ opacity: 0, y: 10, scale: 0.6 }}
+                            initial={{ opacity: 0, x: -10, y: -10, scale: 0.6 }}
                             animate={{
                                 opacity: 1,
+                                x: 0,
                                 y: 0,
                                 scale: 1,
                                 transition: {
                                     type: "spring",
-                                    stiffness: 260,
-                                    damping: 10,
+                                    stiffness: 1000,
+                                    damping: 100,
                                 },
                             }}
-                            exit={{ opacity: 0, y: 10, scale: 0.6 }}
-                            className="absolute top-10 left-2 transform -translate-x-1/2 mt-2 flex flex-col items-center justify-center rounded-tl-none rounded-xl bg-green-500 z-50 shadow-xl px-4 py-2"
+                            exit={{ opacity: 0, x: -10, y: -10, scale: 0.6 }}
+                            className="absolute top-10 left-2 transform -translate-x-1/2 mt-2 flex flex-col items-center justify-center rounded-tl-none rounded-md bg-green-500 z-50 shadow-xl px-4 py-2"
                         >
                             <div className="font-bold text-white relative z-30 text-base">
                                 Copied!

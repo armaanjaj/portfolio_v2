@@ -8,8 +8,10 @@ const JWT_SECRET = process.env.JWT_SECRET || "your_jwt_secret";
 export async function GET() {
     await dbConnect();
 
-    const viewerCount = await Viewer.countDocuments();
-    const viewerNumber = viewerCount + 1;
+    const lastViewer = await Viewer.findOne().sort({ _id: -1 });
+
+    const viewerNumber =
+        lastViewer && lastViewer.viewerNumber ? lastViewer.viewerNumber + 1 : 1;
 
     const token = jwt.sign(
         { viewerNumber, timestamp: Date.now() },
@@ -19,7 +21,7 @@ export async function GET() {
         }
     );
 
-    const newViewer = new Viewer({ token });
+    const newViewer = new Viewer({ token, viewerNumber });
     await newViewer.save();
 
     return NextResponse.json({ viewerNumber, token });
