@@ -40,7 +40,6 @@ const ViewerCounter = () => {
                 setViewerNumber(decoded.viewerNumber.toString() || "");
                 Cookies.set("viewer_token", data.token, { expires: 1 / 48 });
             } catch (error) {
-                console.error("Error fetching viewer number:", error);
                 setViewerNumber("");
             }
         };
@@ -59,7 +58,6 @@ const ViewerCounter = () => {
                     setViewerNumber(decoded.viewerNumber.toString() || "");
                 }
             } catch (error) {
-                console.error("Error decoding token:", error);
                 setViewerNumber("");
             }
         }

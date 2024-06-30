@@ -8,7 +8,7 @@ const AboutMe = () => {
                 <h1>About me</h1>
             </div>
             <div
-                className="absolute bottom-2 -right-16 h-28 w-60"
+                className="absolute bottom-4 -right-16 h-28 w-60"
                 onContextMenu={(event: any) => {
                     event.preventDefault();
                 }}
