@@ -23,11 +23,16 @@ export default function ModeToggle() {
     if (!isMounted) return null;
 
     return (
-        <div
-            className="relative h-12 w-12 flex items-center justify-center bg-gray-900 dark:bg-blue-500 rounded-full cursor-pointer text-2xl overflow-hidden"
-            onClick={handleToggle}
-        >
-            <StyledIcons type={theme} />
+        <div className="relative flex flex-col justify-center items-center">
+            <div className="absolute h-16 w-16 flex items-center justify-center z-0">
+                <div className="w-16 h-16 rounded-full bg-white border-2 border-gray-300 shadow-lg" />
+            </div>
+            <div
+                className="relative h-12 w-12 flex items-center justify-center bg-gray-900 dark:bg-blue-500 rounded-full cursor-pointer text-2xl overflow-hidden z-[1] border border-gray-200 shadow-inner"
+                onClick={handleToggle}
+            >
+                <StyledIcons type={theme} />
+            </div>
         </div>
     );
 }

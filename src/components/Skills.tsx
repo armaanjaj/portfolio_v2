@@ -95,7 +95,7 @@ const Skills = () => {
                     >
                         {section.sectionTitle}
                     </motion.h2>
-                    <div className="flex flex-row justify-start items-center flex-nowrap">
+                    <div className="flex flex-row justify-center items-center flex-wrap gap-2">
                         {section.content.map((item, i) => (
                             <motion.div
                                 key={i}
