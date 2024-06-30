@@ -20,7 +20,6 @@ import {
     GithubOriginal,
     FigmaOriginal,
     FramermotionOriginal,
-    LinkedinOriginal
 } from "devicons-react";
 
 export const HouseIcon = FaHouseChimney;

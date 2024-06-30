@@ -8,6 +8,7 @@ import { DynamicProjectsCard } from "../DynamicProjectsCard";
 import { Meteors } from "./meteors";
 import Skills from "../Skills";
 import AboutMe from "../AboutMe";
+import ViewerCounter from "../ViewerCounter";
 
 export const BentoGrid = ({
     className,
@@ -107,20 +108,6 @@ export const BentoGridItem = ({
             </div>
         );
     }
-    if (id === 4) {
-        return (
-            <div
-                className={cn(
-                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none p-4 dark:bg-[#0D1117] dark:border-white/[0.2] bg-white border border-transparent flex flex-col justify-center items-center",
-                    getGridColumn(id),
-                    getGridRow(id),
-                    className
-                )}
-            >
-                <Navbar />
-            </div>
-        );
-    }
     if (id === 3) {
         return (
             <div
@@ -132,6 +119,20 @@ export const BentoGridItem = ({
                 )}
             >
                 <Location />
+            </div>
+        );
+    }
+    if (id === 4) {
+        return (
+            <div
+                className={cn(
+                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none p-4 dark:bg-[#0D1117] dark:border-white/[0.2] bg-white border border-transparent flex flex-col justify-center items-center",
+                    getGridColumn(id),
+                    getGridRow(id),
+                    className
+                )}
+            >
+                <Navbar />
             </div>
         );
     }
@@ -147,6 +148,20 @@ export const BentoGridItem = ({
             >
                 <Skills />
                 <Meteors className="z-[1]" number={20} />
+            </div>
+        );
+    }
+    if (id === 6) {
+        return (
+            <div
+                className={cn(
+                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none w-full h-full  dark:border-white/[0.2] border border-transparent flex flex-col justify-center items-center overflow-hidden bg-gray-900 z-0 dark:text-white text-gray-900",
+                    getGridColumn(id),
+                    getGridRow(id),
+                    className
+                )}
+            >
+                <ViewerCounter />
             </div>
         );
     }
