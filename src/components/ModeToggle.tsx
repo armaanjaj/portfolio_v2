@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import * as React from 'react';
-import { useTheme } from 'next-themes';
-import { motion } from 'framer-motion';
-import { MdSunny } from 'react-icons/md';
-import { WiMoonWaxingCrescent3 } from 'react-icons/wi';
-import { useEffect, useState } from 'react';
+import * as React from "react";
+import { useTheme } from "next-themes";
+import { motion } from "framer-motion";
+import { MdSunny } from "react-icons/md";
+import { WiMoonWaxingCrescent3 } from "react-icons/wi";
+import { useEffect, useState } from "react";
 
 export default function ModeToggle() {
     const [isMounted, setIsMounted] = useState(false);
@@ -16,14 +16,14 @@ export default function ModeToggle() {
     }, []);
 
     const handleToggle = () => {
-        setTheme(theme === 'dark' ? 'light' : 'dark');
+        setTheme(theme === "dark" ? "light" : "dark");
     };
 
     if (!isMounted) return null;
 
     return (
         <div
-            className="relative h-12 w-12 flex items-center justify-center bg-gray-600 dark:bg-gray-500 rounded-full cursor-pointer text-2xl"
+            className="relative h-12 w-12 flex items-center justify-center bg-gray-900 dark:bg-white rounded-full cursor-pointer text-2xl"
             onClick={handleToggle}
         >
             <motion.div
@@ -32,7 +32,7 @@ export default function ModeToggle() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3 }}
             >
-                {theme === 'dark' ? (
+                {theme === "dark" ? (
                     <MdSunny className="text-yellow-500" />
                 ) : (
                     <WiMoonWaxingCrescent3 className="text-gray-100 -ml-1 -mt-1 rotate-45" />

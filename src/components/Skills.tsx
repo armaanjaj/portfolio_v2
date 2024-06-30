@@ -4,38 +4,67 @@ import { skills } from "../../data";
 
 const Skills = () => {
     const controls = useAnimation();
+    const textControls = useAnimation();
     const [currentSection, setCurrentSection] = React.useState(0);
 
     const cycleAnimation = async () => {
         while (true) {
+            // Show content for 2.5 seconds
+            await new Promise((resolve) => setTimeout(resolve, 2500));
+
+            // Animate text out first
+            await textControls.start({
+                opacity: 0,
+                transition: {
+                    duration: 0.5,
+                    ease: "linear",
+                },
+            });
+
+            // Animate icons out after text
             await controls.start({
                 y: -window.innerHeight,
                 opacity: [1, 1, 0],
                 transition: {
-                    duration: 1,
+                    duration: 0.5,
                     ease: "linear",
                 },
             });
 
+            // Set next section
             setCurrentSection(
                 (prevSection) => (prevSection + 1) % skills.length
             );
 
+            // Move to the next section with both hidden
             controls.set({
                 y: window.innerHeight,
                 opacity: 0,
             });
+            textControls.set({
+                opacity: 0,
+            });
 
+            // Animate icons in first
             await controls.start({
                 y: 0,
                 opacity: [0, 1],
                 transition: {
-                    duration: 1,
+                    duration: 0.5,
                     ease: "linear",
                 },
             });
 
-            await new Promise((resolve) => setTimeout(resolve, 1500));
+            // Animate text in after icons
+            await textControls.start({
+                opacity: 0.10,
+                transition: {
+                    duration: 0.5,
+                    ease: "linear",
+                },
+            });
+
+            await new Promise((resolve) => setTimeout(resolve, 1000));
         }
     };
 
@@ -54,20 +83,31 @@ const Skills = () => {
                     animate={controls}
                     initial={{ y: 0, opacity: 1 }}
                 >
-                    <h2 className="absolute z-0 top-0 left-0 w-full h-full text-8xl text-white opacity-10 uppercase flex items-center justify-center">
+                    <motion.h2
+                        className="absolute z-0 top-0 left-0 w-full h-full text-8xl text-white opacity-10 uppercase flex items-center justify-center"
+                        initial={{ opacity: 0 }}
+                        animate={textControls}
+                    >
                         {section.sectionTitle}
-                    </h2>
+                    </motion.h2>
                     <div className="flex flex-row justify-start items-center flex-nowrap">
                         {section.content.map((item, i) => (
-                            <div
+                            <motion.div
                                 key={i}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{
+                                    duration: 0.5,
+                                    ease: "linear",
+                                }}
                                 className="flex items-center px-3 py-2 gap-3 bg-gray-500 bg-opacity-30 backdrop-blur-sm rounded-md border border-gray-600 h-8 w-fit mx-2"
                             >
                                 <item.logo />
                                 <span className="text-white whitespace-nowrap">
                                     {item.title}
                                 </span>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
                 </motion.div>
