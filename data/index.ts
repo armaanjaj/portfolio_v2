@@ -1,5 +1,4 @@
 import {
-    HouseIcon,
     ProjectsIcon,
     TestimonialsIcon,
     ContactIcon,
@@ -26,13 +25,16 @@ import {
     MailIcon,
     SocialGitHubIcon,
     ProjectNextJSIcon,
+    NewsletterIcon,
+    BlogsIcon,
+    AboutIcon,
 } from "@/utils/icons";
 
 export const navLinks = [
-    { name: "About", link: "/about", icon: HouseIcon },
-    { name: "Blogs", link: "/blogs", icon: HouseIcon },
+    { name: "About", link: "/about", icon: AboutIcon },
+    { name: "Blogs", link: "/blogs", icon: BlogsIcon },
     { name: "Projects", link: "/projects", icon: ProjectsIcon },
-    { name: "Technologies", link: "/technologies", icon: ProjectsIcon },
+    { name: "Newsletters", link: "/newsletters", icon: NewsletterIcon },
     { name: "Testimonials", link: "/testimonials", icon: TestimonialsIcon },
     { name: "Contact", link: "/contact", icon: ContactIcon },
 ];
@@ -68,7 +70,12 @@ export const projects = [
             "https://www.armaancodes.com/v1",
             "https://github.com/armaanjaj/portfolio_v1",
         ],
-        iconLists: [ProjectNextJSIcon, TailwindCSSIcon, TSIcon, FramermotionIcon],
+        iconLists: [
+            ProjectNextJSIcon,
+            TailwindCSSIcon,
+            TSIcon,
+            FramermotionIcon,
+        ],
         colors: ["#ffd84d", "#000000", "#546173"],
     },
     {
@@ -80,7 +87,12 @@ export const projects = [
             "https://www.sumitnanda.ca/",
             "https://github.com/armaanjaj/sumit-nanda-real-estate",
         ],
-        iconLists: [ProjectNextJSIcon, TailwindCSSIcon, TSIcon, FramermotionIcon],
+        iconLists: [
+            ProjectNextJSIcon,
+            TailwindCSSIcon,
+            TSIcon,
+            FramermotionIcon,
+        ],
         colors: ["#ff2e2e", "#FFFFFF", "#d9dde3"],
     },
     {
@@ -89,7 +101,12 @@ export const projects = [
         des: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..",
         img: "/p5.png",
         links: ["https://www.morningstarcontractors.ca/", ""],
-        iconLists: [ProjectNextJSIcon, TailwindCSSIcon, TSIcon, FramermotionIcon],
+        iconLists: [
+            ProjectNextJSIcon,
+            TailwindCSSIcon,
+            TSIcon,
+            FramermotionIcon,
+        ],
         colors: ["#FEE071", "#1F2937", "#64748B"],
     },
 ];
@@ -229,5 +246,53 @@ export const socialLinks = [
         icon: MailIcon,
         className: "",
         isCopy: true,
+    },
+];
+
+export const blogs = [
+    {
+        blogId: 1,
+        blogTitle: "The Rise of JavaScript Frameworks in 2024",
+        blogDescription:
+            "A deep dive into the latest JavaScript frameworks gaining traction this year and how they're shaping the future of web development.",
+        dateCreated: "2024-01-15",
+        href: "/blogs/rise-of-js-frameworks-2024",
+        cover: "/b1.jpg",
+    },
+    {
+        blogId: 2,
+        blogTitle: "AI in Software Development: Trends and Predictions",
+        blogDescription:
+            "Exploring the impact of artificial intelligence on software development, current trends, and what to expect in the coming years.",
+        dateCreated: "2024-02-10",
+        href: "/blogs/ai-in-software-development",
+        cover: "/b2.jpg",
+    },
+    {
+        blogId: 3,
+        blogTitle: "A Guide to Full-Stack Development in 2024",
+        blogDescription:
+            "Everything you need to know about becoming a full-stack developer this year, including the essential tools and technologies.",
+        dateCreated: "2024-03-05",
+        href: "/blogs/guide-to-full-stack-development",
+        cover: "/b3.jpg",
+    },
+    {
+        blogId: 4,
+        blogTitle: "Top 10 DevOps Practices for Efficient Software Delivery",
+        blogDescription:
+            "Discover the best DevOps practices to enhance your software delivery process and ensure continuous integration and deployment.",
+        dateCreated: "2024-04-12",
+        href: "/blogs/top-devops-practices",
+        cover: "/b4.jpg",
+    },
+    {
+        blogId: 5,
+        blogTitle: "Embracing Quantum Computing: What Developers Need to Know",
+        blogDescription:
+            "An introduction to quantum computing for developers, covering the basics, current advancements, and how to get started.",
+        dateCreated: "2024-05-20",
+        href: "/blogs/embracing-quantum-computing",
+        cover: "/b5.jpg",
     },
 ];

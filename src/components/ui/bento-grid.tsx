@@ -9,6 +9,7 @@ import { Meteors } from "./meteors";
 import Skills from "../Skills";
 import AboutMe from "../AboutMe";
 import ViewerCounter from "../ViewerCounter";
+import BlogsSection from "../BlogsSection";
 
 export const BentoGrid = ({
     className,
@@ -105,6 +106,20 @@ export const BentoGridItem = ({
                 )}
             >
                 <AboutMe />
+            </div>
+        );
+    }
+    if (id === 2) {
+        return (
+            <div
+                className={cn(
+                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none dark:bg-[#0D1117] dark:border-white/[0.2] bg-white border border-transparent flex flex-col justify-center items-center dark:text-white text-gray-900 z-0 w-full h-full overflow-hidden",
+                    getGridColumn(id),
+                    getGridRow(id),
+                    className
+                )}
+            >
+                <BlogsSection />
             </div>
         );
     }

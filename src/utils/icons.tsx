@@ -1,5 +1,10 @@
 import { FaBriefcase, FaStar, FaEnvelope } from "react-icons/fa";
-import { FaGithub, FaGithubAlt, FaHouseChimney, FaInstagram, FaLinkedin } from "react-icons/fa6";
+import {
+    FaGithub,
+    FaHouseChimney,
+    FaInstagram,
+    FaLinkedin,
+} from "react-icons/fa6";
 import {
     NextjsOriginal,
     NextjsPlain,
@@ -21,11 +26,19 @@ import {
     FigmaOriginal,
     FramermotionOriginal,
 } from "devicons-react";
+import { LiaMailBulkSolid } from "react-icons/lia";
+import { PiReadCvLogoFill } from "react-icons/pi";
+import { IoPerson } from "react-icons/io5";
 
-export const HouseIcon = FaHouseChimney;
+// Navigation Icons
+export const AboutIcon = IoPerson;
+export const BlogsIcon = PiReadCvLogoFill;
 export const ProjectsIcon = FaBriefcase;
+export const NewsletterIcon = LiaMailBulkSolid;
 export const TestimonialsIcon = FaStar;
 export const ContactIcon = FaEnvelope;
+
+// Technologies Icons
 export const NextJSIcon = NextjsOriginal;
 export const ProjectNextJSIcon = NextjsPlain;
 export const TailwindCSSIcon = TailwindcssOriginal;

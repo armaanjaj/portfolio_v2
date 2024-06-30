@@ -17,7 +17,7 @@ const Navbar = () => {
                             key={`link=${idx}`}
                             href={navItem.link}
                             className={cn(
-                                "dark:text-neutral-50 text-base items-center flex space-x-1 text-gray-700 dark:hover:text-purple-500 hover:text-purple-700 hover:-translate-x-2 transition-transform duration-200 gap-2 py-1"
+                                "dark:text-neutral-50 text-base items-center flex space-x-1 text-gray-700 dark:hover:text-purple-500 hover:text-purple-700 hover:-translate-x-2 transition-transform duration-300 gap-2 py-1 w-full"
                             )}
                         >
                             {/* <span className="block scale-125">
