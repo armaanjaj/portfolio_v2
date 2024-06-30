@@ -57,7 +57,7 @@ const Skills = () => {
 
             // Animate text in after icons
             await textControls.start({
-                opacity: 0.10,
+                opacity: 0.1,
                 transition: {
                     duration: 0.5,
                     ease: "linear",
@@ -73,7 +73,12 @@ const Skills = () => {
     }, []);
 
     return (
-        <div className="relative w-full h-full overflow-hidden flex items-center z-[2] cursor-default">
+        <div
+            className="relative w-full h-full overflow-hidden flex items-center z-[2] cursor-default select-none"
+            onContextMenu={(event: any) => {
+                event.preventDefault();
+            }}
+        >
             {skills.map((section, sectionIndex) => (
                 <motion.div
                     key={section.sectionId}
@@ -112,8 +117,8 @@ const Skills = () => {
                     </div>
                 </motion.div>
             ))}
-            <div className="absolute -right-2 -bottom-4 text-4xl z-0 text-white opacity-60 font-bold">
-                <span>SKILLS</span>
+            <div className="absolute -right-2 -bottom-4 text-4xl z-0 text-white opacity-60 font-bold uppercase">
+                <span>I have worked with</span>
             </div>
         </div>
     );
