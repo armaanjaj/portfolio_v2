@@ -12,23 +12,23 @@ body {
     scroll-behavior: smooth;
 }
 
-/* width */
-.styledScrollBar::-webkit-scrollbar {
-    width: 4px;
+.hover\:neon-glow:hover {
+    box-shadow: 0 0 20px rgba(238, 82, 255, 0.7), 0 0 40px rgba(238, 82, 255, 0.7), 0 0 60px rgba(238, 82, 255, 0.7);
 }
 
-/* Track */
+.styledScrollBar::-webkit-scrollbar {
+    width: 8px;
+}
+
 .styledScrollBar::-webkit-scrollbar-track {
     background: transparent;
 }
 
-/* Handle */
 .styledScrollBar::-webkit-scrollbar-thumb {
-    background: #8e8e8e;
-    border-radius: 2px;
+    background: #888;
+    border-radius: 4px;
 }
 
-/* Handle on hover */
 .styledScrollBar::-webkit-scrollbar-thumb:hover {
     background: #555;
 }

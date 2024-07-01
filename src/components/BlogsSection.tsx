@@ -76,7 +76,7 @@ const BlogsSection = () => {
                 <h2>blogs</h2>
             </div>
 
-            <div className="absolute left-2 bottom-2 uppercase text-3xl z-[1] bg-white rounded-full bg-opacity-60 font-bold border-2 flex flex-row justify-between items-center">
+            <div className="absolute left-2 bottom-2 uppercase text-3xl z-[1] bg-white rounded-full font-bold border flex flex-row justify-between items-center">
                 <Link href={blogs[currentBlog].href || "#"}>
                     <IoIosArrowRoundForward className="group-hover:-rotate-45 transition duration-300 text-gray-800" />
                 </Link>

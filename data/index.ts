@@ -34,8 +34,8 @@ export const navLinks = [
     {id:1, name: "About", link: "/about", icon: AboutIcon },
     {id:2, name: "Blogs", link: "/blogs", icon: BlogsIcon },
     {id:3, name: "Work", link: "/work", icon: ProjectsIcon },
-    {id:4, name: "Newsletters", link: "/newsletters", icon: NewsletterIcon },
-    {id:5, name: "Testimonials", link: "/testimonials", icon: TestimonialsIcon },
+    // {id:4, name: "Newsletters", link: "/newsletters", icon: NewsletterIcon },
+    // {id:5, name: "Testimonials", link: "/testimonials", icon: TestimonialsIcon },
     {id:6, name: "Contact", link: "/contact", icon: ContactIcon },
 ];
 
