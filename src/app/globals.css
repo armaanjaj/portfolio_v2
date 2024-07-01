@@ -11,3 +11,24 @@ body {
     font-style: normal;
     scroll-behavior: smooth;
 }
+
+/* width */
+.styledScrollBar::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Track */
+.styledScrollBar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+.styledScrollBar::-webkit-scrollbar-thumb {
+    background: #8e8e8e;
+    border-radius: 2px;
+}
+
+/* Handle on hover */
+.styledScrollBar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

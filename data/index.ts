@@ -31,12 +31,12 @@ import {
 } from "@/utils/icons";
 
 export const navLinks = [
-    { name: "About", link: "/about", icon: AboutIcon },
-    { name: "Blogs", link: "/blogs", icon: BlogsIcon },
-    { name: "Projects", link: "/projects", icon: ProjectsIcon },
-    { name: "Newsletters", link: "/newsletters", icon: NewsletterIcon },
-    { name: "Testimonials", link: "/testimonials", icon: TestimonialsIcon },
-    { name: "Contact", link: "/contact", icon: ContactIcon },
+    {id:1, name: "About", link: "/about", icon: AboutIcon },
+    {id:2, name: "Blogs", link: "/blogs", icon: BlogsIcon },
+    {id:3, name: "Work", link: "/work", icon: ProjectsIcon },
+    {id:4, name: "Newsletters", link: "/newsletters", icon: NewsletterIcon },
+    {id:5, name: "Testimonials", link: "/testimonials", icon: TestimonialsIcon },
+    {id:6, name: "Contact", link: "/contact", icon: ContactIcon },
 ];
 
 export const projects = [

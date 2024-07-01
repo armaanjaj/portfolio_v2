@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Roboto_Condensed } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/utils/Provider";
+import { OverlayProvider } from "@/context/OverlayContext";
+import Overlay from "@/components/Overlay";
 
 const robotoCondensed = Roboto_Condensed({
     subsets: ["latin"],
@@ -23,14 +25,17 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={robotoCondensed.className}>
-            {/* <body> */}
+                {/* <body> */}
                 <ThemeProvider
                     attribute="class"
                     defaultTheme="light"
                     enableSystem
                     disableTransitionOnChange
                 >
-                    {children}
+                    <OverlayProvider>
+                        {children}
+                        <Overlay />
+                    </OverlayProvider>
                 </ThemeProvider>
             </body>
         </html>

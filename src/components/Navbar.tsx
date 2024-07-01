@@ -7,8 +7,20 @@ import { FiGitBranch } from "react-icons/fi";
 import { RiStarSLine } from "react-icons/ri";
 import { SocialGitHubIcon } from "@/utils/icons";
 import Logo from "./Logo";
+import { useOverlay } from "@/context/OverlayContext";
 
 const Navbar = () => {
+    const { showOverlay, setOverlayContent } = useOverlay();
+
+    const handleClick = (
+        e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+        navItem: any
+    ) => {
+        e.preventDefault();
+        setOverlayContent(navItem.id);
+        showOverlay();
+    };
+
     return (
         <header className="h-full w-full relative p-0 overflow-hidden">
             <div className="flex flex-col justify-evenly items-center h-full py-5 px-3">
@@ -20,13 +32,11 @@ const Navbar = () => {
                         <Link
                             key={`link=${idx}`}
                             href={navItem.link}
+                            onClick={(e) => handleClick(e, navItem)}
                             className={cn(
                                 "dark:text-neutral-50 text-base items-center flex space-x-1 text-gray-700 dark:hover:text-purple-500 hover:text-purple-700 hover:-translate-x-2 transition-transform duration-300 gap-2 py-1 w-full"
                             )}
                         >
-                            {/* <span className="block scale-125">
-                                <navItem.icon/>
-                            </span> */}
                             <span className="!cursor-pointer">
                                 {navItem.name}
                             </span>
