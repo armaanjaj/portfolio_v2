@@ -58,7 +58,7 @@ const StyledSocialLinks = ({
             <button
                 aria-label={label}
                 onClick={handleCopy}
-                className={`relative group rounded-full w-fit mx-auto bg-gray-900 p-2 text-white hover:bg-gray-800 transition-colors duration-300 text-3xl ${className}`}
+                className={`relative group rounded-full w-fit mx-auto bg-gray-900 p-2 text-white transition-colors duration-300 text-3xl hover:text-purple-500 dark:hover:text-purple-400 ${className}`}
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
             >
@@ -118,7 +118,7 @@ const StyledSocialLinks = ({
             href={href}
             aria-label={label}
             target={target}
-            className={`rounded-full w-fit mx-auto bg-gray-900 p-2 text-white hover:bg-gray-800 transition-colors duration-300 text-3xl ${className}`}
+            className={`rounded-full w-fit mx-auto bg-gray-900 p-2 text-white hover:text-purple-500 dark:hover:text-purple-400 transition-colors duration-300 text-3xl ${className}`}
         >
             {children}
         </Link>

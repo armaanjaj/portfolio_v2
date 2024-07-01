@@ -8,7 +8,7 @@ import AboutMeOverlay from "./AboutMeOverlay";
 import BlogsOverlay from "./BlogsOverlay";
 import NewsletterOverlay from "./NewsletterOverlay";
 import TestimonialOverlay from "./TestimonialOverlay";
-import ContactOverlay from "./Contactoverlay";
+import ContactOverlay from "./ContactOverlay";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Overlay = () => {
