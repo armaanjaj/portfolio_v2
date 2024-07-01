@@ -8,10 +8,21 @@ const JWT_SECRET = process.env.JWT_SECRET || "your_jwt_secret";
 export async function GET() {
     await dbConnect();
 
-    const lastViewer = await Viewer.findOne().sort({ _id: -1 });
+    // Count the total number of documents in the collection
+    const documentCount = await Viewer.countDocuments();
 
-    const viewerNumber =
-        lastViewer && lastViewer.viewerNumber ? lastViewer.viewerNumber + 1 : 1;
+    let viewerNumber;
+    if (documentCount % 10 === 0 && documentCount !== 0) {
+        // Pull the last viewer number before deletion
+        const lastViewer = await Viewer.findOne().sort({ _id: -1 });
+        viewerNumber = lastViewer ? lastViewer.viewerNumber + 1 : 1;
+
+        // Delete the last 10 documents
+        await Viewer.deleteMany().sort({ _id: -1 }).limit(10);
+    } else {
+        const lastViewer = await Viewer.findOne().sort({ _id: -1 });
+        viewerNumber = lastViewer ? lastViewer.viewerNumber + 1 : 1;
+    }
 
     const token = jwt.sign(
         { viewerNumber, timestamp: Date.now() },
@@ -21,8 +32,12 @@ export async function GET() {
         }
     );
 
-    const newViewer = new Viewer({ token, viewerNumber });
-    await newViewer.save();
+    const viewer = new Viewer({ token, viewerNumber });
+    const savedViewer = await viewer.save();
 
-    return NextResponse.json({ viewerNumber, token });
+    return NextResponse.json({
+        message: "Viewer saved successfully.",
+        success: true,
+        savedViewer,
+    });
 }

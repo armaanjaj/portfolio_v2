@@ -5,8 +5,10 @@ import Cookies from "js-cookie";
 import { jwtDecode } from "jwt-decode";
 
 interface ViewerResponse {
-    viewerNumber: number;
-    token: string;
+    savedViewer: {
+        viewerNumber: number;
+        token: string;
+    };
 }
 
 interface DecodedToken {
@@ -36,9 +38,11 @@ const ViewerCounter = () => {
                 const { data } = await axios.get<ViewerResponse>(
                     "/api/viewerCounter"
                 );
-                const decoded: DecodedToken = jwtDecode(data.token);
+                const decoded: DecodedToken = jwtDecode(data.savedViewer.token);
                 setViewerNumber(decoded.viewerNumber.toString() || "");
-                Cookies.set("viewer_token", data.token, { expires: 1 / 48 });
+                Cookies.set("viewer_token", data.savedViewer.token, {
+                    expires: 1 / 48,
+                });
             } catch (error) {
                 setViewerNumber("");
             }
@@ -65,7 +69,7 @@ const ViewerCounter = () => {
 
     return (
         <div className="px-3 py-2 flex flex-col justify-center items-center gap-2">
-            {viewerNumber != "" && (
+            {viewerNumber !== "" && (
                 <div className="text-center">
                     {viewerNumber ? (
                         <p className="font-semibold text-green-400 text-md">
