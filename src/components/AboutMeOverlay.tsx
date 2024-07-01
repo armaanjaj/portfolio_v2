@@ -98,6 +98,9 @@ const AboutMeOverlay = () => {
                         width={200}
                         height={200}
                         className="rounded-full border-4 border-purple-500"
+                        onContextMenu={(event: any) => {
+                            event.preventDefault();
+                        }}
                     />
                     <h3 className="font-bold text-3xl text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 animate-gradient">
                         Armaan Jaj

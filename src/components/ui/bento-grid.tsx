@@ -11,6 +11,11 @@ import AboutMe from "../AboutMe";
 import ViewerCounter from "../ViewerCounter";
 import BlogsSection from "../BlogsSection";
 import RoadmapSection from "../RoadmapSection";
+import ModeToggle from "../ModeToggle";
+import Logo from "../Logo";
+import Link from "next/link";
+import { navLinks } from "../../../data";
+import { useOverlay } from "@/context/OverlayContext";
 
 export const BentoGrid = ({
     className,
@@ -22,7 +27,7 @@ export const BentoGrid = ({
     return (
         <div
             className={cn(
-                "grid overflow-x-hidden overflow-y-auto grid-cols-1 gap-6 max-w-7xl mx-auto p-5 h-full md:grid-cols-6 md:grid-rows-5 md:overflow-hidden",
+                "grid grid-cols-1 gap-4 xl:gap-4 2xl:gap-6 w-[95vw] h-full lg:w-[75vw] lg:h-[75vh] xl:w-[80vw] xl:h-[80vh] 2xl:w-[85vw] 2xl:h-[85vh] mx-auto px-5 md:grid-cols-6 md:grid-rows-5 md:overflow-hidden py-10 lg:py-0",
                 className
             )}
         >
@@ -33,17 +38,9 @@ export const BentoGrid = ({
 
 export const BentoGridItem = ({
     className,
-    title,
-    description,
-    header,
-    icon,
     id,
 }: {
     className?: string;
-    title?: string | React.ReactNode;
-    description?: string | React.ReactNode;
-    header?: React.ReactNode;
-    icon?: React.ReactNode;
     id: number;
 }) => {
     const getGridColumn = (id: number) => {
@@ -96,25 +93,62 @@ export const BentoGridItem = ({
         }
     };
 
+    const { showOverlay, setOverlayContent } = useOverlay();
+
+    const handleClick = (
+        e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+        navItem: any
+    ) => {
+        e.preventDefault();
+        setOverlayContent(navItem.id);
+        showOverlay();
+    };
+
     if (id === 1) {
         return (
-            <div
-                className={cn(
-                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none dark:bg-[#0D1117] dark:border-white/[0.2] bg-white border border-transparent flex flex-col justify-center items-center dark:text-white text-gray-900 z-0 w-full h-full overflow-hidden",
-                    getGridColumn(id),
-                    getGridRow(id),
-                    className
-                )}
-            >
-                <AboutMe />
-            </div>
+            <>
+                <div
+                    className={cn(
+                        "relative sm:hidden rounded-xl transition shadow-sm duration-700 dark:shadow-none h-52 w-full lg:h-full  dark:border-white/[0.2] border border-transparent flex flex-col justify-center items-center gap-10 overflow-hidden bg-gray-900 z-0 dark:text-white text-gray-900",
+                        getGridColumn(id),
+                        getGridRow(id),
+                        className
+                    )}
+                >
+                    <Logo />
+                    <div className="flex flex-row justify-center items-center w-full gap-10">
+                        {navLinks.map((navItem: any, idx: number) => (
+                            <Link
+                                key={`link=${idx}`}
+                                href={navItem.link}
+                                onClick={(e) => handleClick(e, navItem)}
+                                className={cn(
+                                    "dark:text-neutral-50 text-base text-gray-300"
+                                )}
+                            >
+                                {navItem.name}
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+                <div
+                    className={cn(
+                        "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none dark:bg-[#0D1117] dark:border-white/[0.2] bg-white border border-transparent flex flex-col justify-center items-center dark:text-white text-gray-900 z-0 h-52 w-full lg:h-full overflow-hidden",
+                        getGridColumn(id),
+                        getGridRow(id),
+                        className
+                    )}
+                >
+                    <AboutMe />
+                </div>
+            </>
         );
     }
     if (id === 2) {
         return (
             <div
                 className={cn(
-                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none dark:bg-[#0D1117] dark:border-white/[0.2] bg-white border border-transparent flex flex-col justify-center items-center dark:text-white text-gray-900 z-0 w-full h-full overflow-hidden",
+                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none dark:bg-[#0D1117] dark:border-white/[0.2] bg-white border border-transparent flex flex-col justify-center items-center dark:text-white text-gray-900 z-0 h-52 w-full lg:h-full overflow-hidden",
                     getGridColumn(id),
                     getGridRow(id),
                     className
@@ -128,7 +162,7 @@ export const BentoGridItem = ({
         return (
             <div
                 className={cn(
-                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none w-full h-full dark:bg-[#0D1117] dark:border-white/[0.2] bg-white border border-transparent flex flex-col justify-center items-center overflow-hidden",
+                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none h-52 w-full lg:h-full dark:bg-[#0D1117] dark:border-white/[0.2] bg-white border border-transparent flex flex-col justify-center items-center overflow-hidden",
                     getGridColumn(id),
                     getGridRow(id),
                     className
@@ -149,6 +183,9 @@ export const BentoGridItem = ({
                 )}
             >
                 <Navbar />
+                <div className="lg:hidden py-10">
+                    <ModeToggle />
+                </div>
             </div>
         );
     }
@@ -156,7 +193,7 @@ export const BentoGridItem = ({
         return (
             <div
                 className={cn(
-                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none w-full h-full  dark:border-white/[0.2] border border-transparent flex flex-col justify-center items-center overflow-hidden bg-gray-900 z-0",
+                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none h-52 w-full lg:h-full  dark:border-white/[0.2] border border-transparent flex flex-col justify-center items-center overflow-hidden bg-gray-900 z-0",
                     getGridColumn(id),
                     getGridRow(id),
                     className
@@ -171,7 +208,7 @@ export const BentoGridItem = ({
         return (
             <div
                 className={cn(
-                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none w-full h-full  dark:border-white/[0.2] border border-transparent flex flex-col justify-center items-center overflow-hidden bg-gray-900 z-0 dark:text-white text-gray-900",
+                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none h-52 w-full lg:h-full  dark:border-white/[0.2] border border-transparent flex flex-col justify-center items-center overflow-hidden bg-gray-900 z-0 dark:text-white text-gray-900",
                     getGridColumn(id),
                     getGridRow(id),
                     className
@@ -185,7 +222,7 @@ export const BentoGridItem = ({
         return (
             <div
                 className={cn(
-                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none w-full h-full  dark:border-white/[0.2] border border-transparent flex flex-col justify-center items-center overflow-hidden",
+                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none h-52 w-full lg:h-full  dark:border-white/[0.2] border border-transparent flex flex-col justify-center items-center overflow-hidden",
                     getGridColumn(id),
                     getGridRow(id),
                     className
@@ -199,7 +236,7 @@ export const BentoGridItem = ({
         return (
             <div
                 className={cn(
-                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none w-full h-full dark:bg-[#0D1117] dark:border-white/[0.2] bg-white border border-transparent flex flex-col justify-center items-center overflow-hidden",
+                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none h-52 w-full lg:h-full dark:bg-[#0D1117] dark:border-white/[0.2] bg-white border border-transparent flex flex-col justify-center items-center overflow-hidden",
                     getGridColumn(id),
                     getGridRow(id),
                     className
@@ -213,36 +250,27 @@ export const BentoGridItem = ({
         return (
             <div
                 className={cn(
-                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none w-full h-full dark:border-white/[0.2] border border-transparent flex flex-col justify-center items-center overflow-hidden",
+                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none h-52 w-full lg:h-full dark:border-white/[0.2] border border-transparent flex flex-col justify-center items-center overflow-hidden",
                     getGridColumn(id),
                     getGridRow(id),
                     className
                 )}
             >
-                {/* <Newsletter /> */}
                 <RoadmapSection />
             </div>
         );
     }
+
     return (
         <div
             className={cn(
-                "relative rounded-xl group/bento transition shadow-sm duration-700 dark:shadow-none p-4 dark:bg-[#0D1117] dark:border-white/[0.2] bg-white border border-transparent justify-between flex flex-col",
+                "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none h-52 w-full lg:h-full  dark:border-white/[0.2] border border-transparent flex flex-col justify-center items-center overflow-hidden bg-gray-900 z-0 dark:text-white text-gray-900",
                 getGridColumn(id),
                 getGridRow(id),
                 className
             )}
         >
-            {header}
-            <div className="group-hover/bento:translate-x-2 transition duration-200 relative z-10">
-                {icon}
-                <div className="font-sans font-bold text-neutral-600 dark:text-neutral-200 mb-2 mt-2">
-                    {title}
-                </div>
-                <div className="font-sans font-normal text-neutral-600 text-xs dark:text-neutral-300">
-                    {description}
-                </div>
-            </div>
+            <Logo />
         </div>
     );
 };

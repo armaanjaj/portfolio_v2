@@ -3,7 +3,7 @@ import React from "react";
 
 const AboutMe = () => {
     return (
-        <section className="relative p-0 m-0 min-w-fit min-h-fit w-full h-full overflow-hidden flex flex-col justify-center items-start">
+        <section className="relative p-0 m-0 h-52 w-full lg:h-full overflow-hidden flex flex-col justify-center items-start">
             <div className="select-none absolute left-0 -bottom-4 uppercase text-4xl z-[1] opacity-60 font-bold">
                 <h1>About me</h1>
             </div>
@@ -24,9 +24,9 @@ const AboutMe = () => {
                     }}
                 />
             </div>
-            <div className="absolute top-3 left-3 right-3 border border-gray-600 backdrop-blur-lg text-white z-[1] max-w-full p-4 bg-gray-900 bg-opacity-70 rounded-md shadow-md">
-                <h2 className="text-xl font-bold mb-2">Hey, I'm Armaan!</h2>
-                <p className="text-base">
+            <div className="absolute top-3 left-3 right-3 border border-gray-600 backdrop-blur-lg text-white z-[1] h-fit p-2 sm:p-4 bg-gray-900 bg-opacity-70 rounded-md shadow-md">
+                <h2 className="text-sm xl:text-lg 2xl:text-xl font-bold 2xl:mb-2">Hey, I'm Armaan!</h2>
+                <p className="2xl:block lg:hidden">
                     A detail-oriented coder with a love for design and nature. I
                     strive for perfection in every pixel and laugh in the face
                     of bugs (sometimes literally).

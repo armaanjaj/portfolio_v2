@@ -1,6 +1,6 @@
+import Link from "next/link";
 import React from "react";
 import { navLinks } from "../../data/index";
-import Link from "next/link";
 import { cn } from "@/utils/cn";
 import ModeToggle from "./ModeToggle";
 import { FiGitBranch } from "react-icons/fi";
@@ -23,7 +23,7 @@ const Navbar = () => {
     };
 
     return (
-        <header className="h-full w-full relative p-0 overflow-hidden">
+        <header className="h-full w-full relative p-0 overflow-hidden hidden lg:block">
             <div className="flex flex-col justify-evenly items-center h-full py-5 px-3">
                 <div className="h-1/5 text-gray-700 dark:text-neutral-50 text-xl whitespace-nowrap font-bold">
                     <Logo />

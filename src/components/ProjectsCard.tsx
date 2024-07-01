@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from "react";
 import Image from "next/image";
-import { AnimatedTooltip } from "./ui/avatars";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa6";
@@ -88,26 +87,24 @@ export function ProjectsCard({ project }: ProjectsCardProps) {
                 )}
             </motion.div>
 
-            <div className="relative h-full flex flex-col justify-evenly items-end py-2">
-                <h1 className="font-bold text-right w-fit text-xl relative -mt-2 z-[11] h-1/5">
+            <div className="relative h-full flex flex-col justify-between items-end py-2">
+                <h1 className="font-bold text-right w-fit xl:text-3xl 2xl:text-xl text-2xl relative -mt-2 z-[11] h-1/5">
                     {project.title}
                 </h1>
 
                 <p
-                    className="font-normal text-base relative z-[11] max-w-40 text-right h-3/5"
+                    className="font-normal hidden 2xl:block text-base relative z-[11] max-w-40 text-right h-3/5"
                     style={{ color: project.colors[2] }}
                 >
                     {project.des}
                 </p>
-                <div className="w-fit pr-3 relative z-[11] h-1/5">
-                    <div className="flex flex-row items-center justify-end w-full">
-                        <AnimatedTooltip
-                            items={project.iconLists.map((Icon, index) => ({
-                                id: index,
-                                name: Icon.name || `Icon${index}`,
-                                image: <Icon className="scale-[200%]" />,
-                            }))}
-                        />
+                <div className="w-fit relative z-[11] h-1/5">
+                    <div className="relative flex flex-row items-center justify-end w-full h-full">
+                        {project.iconLists.map((Icon, index) => (
+                            <span className="p-1 rounded-full bg-white w-10 h-10 flex flex-col justify-center items-center">
+                                <Icon className="scale-150" />
+                            </span>
+                        ))}
                     </div>
                 </div>
 

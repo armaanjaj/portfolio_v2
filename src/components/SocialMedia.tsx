@@ -6,7 +6,7 @@ import { socialLinks } from "../../data";
 
 const SocialMedia = () => {
     return (
-        <BackgroundGradientAnimation className="grid grid-cols-2 grid-rows-2 gap-0 w-full h-full py-14 px-10">
+        <BackgroundGradientAnimation className="grid grid-cols-2 grid-rows-2 gap-0 w-full h-full py-[10%] px-[10%]">
             <div className="absolute -left-1 -bottom-4 text-4xl z-0 text-white opacity-40 font-bold uppercase">
                 <span>socials</span>
             </div>

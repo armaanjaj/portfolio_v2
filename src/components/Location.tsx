@@ -47,8 +47,8 @@ export default function Location() {
     return (
         <section className="relative w-full h-full group">
             <div className="absolute inset-0 w-full h-full flex flex-col justify-center items-center dark:bg-gray-800 bg-gray-300 bg-opacity-20 backdrop-blur transition-opacity duration-300 ease-in-out z-[2] text-2xl dark:text-white px-5 py-2 gap-5 group-hover:opacity-0 pointer-events-none text-black">
-                <span className="text-center">
-                    Hover to discover where I’m hiding!
+                <span className="text-center text-sm lg:text-lg 2xl:text-xl">
+                    Hover to discover where I&apos;m hiding!
                 </span>
                 <FaMapMarkerAlt className="z-10 text-red-500" />
             </div>

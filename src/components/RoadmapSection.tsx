@@ -16,8 +16,8 @@ const RoadmapSection = () => {
             onClick={handleClick}
             className="relative p-6 bg-gradient-to-r from-blue-500 to-green-500 dark:from-gray-700 dark:to-gray-800 rounded-lg shadow-md w-full h-full max-w-md cursor-pointer transform transition-transform hover:scale-105"
         >
-            <div className="flex flex-col justify-center items-center h-full w-full text-center text-white">
-                <FaBrain className="text-6xl mb-4" />
+            <div className="flex flex-col justify-center items-center w-full text-center text-white">
+                <FaBrain className="lg:text-2xl 2xl:text-6xl mb-4" />
                 <h2 className="font-bold text-2xl lg:text-3xl">
                     Learn a New Skill
                 </h2>

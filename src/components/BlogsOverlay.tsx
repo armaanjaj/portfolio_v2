@@ -67,28 +67,28 @@ const BlogCards: React.FC<BlogCardsProps> = ({ blogs, handler }) => {
             {blogs.map((blog) => (
                 <div
                     key={blog._id}
-                    className="group relative dark:bg-white bg-gray-900 rounded-lg overflow-hidden border border-transparent hover:border-purple-500 transition duration-300 hover:shadow-lg hover:shadow-purple-500"
+                    className="group relative bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-200 dark:border-gray-700"
                     onClick={() => handler(blog)}
                 >
                     <div className="relative h-56 overflow-hidden">
                         <Image
-                            src={"/blogs/"+blog.imagePath}
+                            src={"/blogs/" + blog.imagePath}
                             alt={blog.title}
                             width={550}
                             height={400}
-                            className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110"
+                            className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-75"></div>
-                        <h2 className="absolute bottom-4 left-4 text-white text-2xl font-semibold z-10">
+                        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70"></div>
+                        <h2 className="absolute bottom-4 left-4 text-white text-2xl font-semibold z-10 transition-opacity duration-300 group-hover:opacity-100">
                             {blog.title}
                         </h2>
                     </div>
                     <div className="p-4">
-                        <p className="dark:text-gray-500 text-gray-200 uppercase text-sm">
+                        <p className="text-gray-500 dark:text-gray-400 uppercase text-sm tracking-widest">
                             {blog.category}
                         </p>
                     </div>
-                    {/* <div className="absolute top-4 left-4 bg-purple-500 text-white text-xs px-2 py-1 rounded-full">
+                    {/* <div className="absolute top-4 right-4 bg-purple-600 text-white text-xs px-2 py-1 rounded-full shadow-md transition-transform duration-300 group-hover:scale-110">
                         New
                     </div> */}
                 </div>

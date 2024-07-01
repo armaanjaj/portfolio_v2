@@ -16,7 +16,6 @@ const BlogsSection = () => {
     const [currentBlog, setCurrentBlog] = useState(0);
     const [blogs, setBlogs] = useState<Blog[]>([]);
     const [loading, setLoading] = useState(true);
-    const [selectedBlogId, setSelectedBlogId] = useState<string | null>(null);
 
     useEffect(() => {
         const fetchBlogs = async () => {
@@ -130,7 +129,7 @@ const BlogsSection = () => {
                             variants={imageVariants}
                         >
                             <motion.div
-                                className="uppercase font-bold text-3xl mx-auto text-center z-[2] h-full w-full"
+                                className="uppercase font-bold text-lg lg:text-2xl 2xl:text-3xl mx-auto text-center z-[2] h-full w-full"
                                 initial="enter"
                                 animate="center"
                                 exit="exit"
@@ -140,7 +139,7 @@ const BlogsSection = () => {
                             </motion.div>
 
                             <motion.div
-                                className="absolute -bottom-16 left-[30%] right-0 w-40 h-48 shadow-2xl shadow-orange-600 z-[1]"
+                                className="absolute top-1/2 sm:left-1/2 -translate-x-1/2 -translate-y-1/2 -bottom-20 left-[25%] 2xl:-bottom-16 2xl:left-[30%] right-0 w-40 h-48 shadow-2xl shadow-purple-500 z-[1]"
                                 onContextMenu={(event: any) => {
                                     event.preventDefault();
                                 }}

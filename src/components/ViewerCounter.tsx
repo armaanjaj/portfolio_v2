@@ -68,7 +68,7 @@ const ViewerCounter = () => {
     }, []);
 
     return (
-        <div className="px-3 py-2 flex flex-col justify-center items-center gap-2">
+        <div className="px-3 py-2 h-full flex flex-col justify-center items-center gap-2">
             {viewerNumber !== "" && (
                 <div className="text-center">
                     {viewerNumber ? (
@@ -82,7 +82,7 @@ const ViewerCounter = () => {
                     )}
                 </div>
             )}
-            <span className="text-sm text-gray-300">
+            <span className="text-lg lg:hidden 2xl:block text-gray-300">
                 I hope you are liking it here.
             </span>
         </div>
