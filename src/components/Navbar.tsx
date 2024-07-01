@@ -8,6 +8,7 @@ import { RiStarSLine } from "react-icons/ri";
 import { SocialGitHubIcon } from "@/utils/icons";
 import Logo from "./Logo";
 import { useOverlay } from "@/context/OverlayContext";
+import { IoIosDownload } from "react-icons/io";
 
 const Navbar = () => {
     const { showOverlay, setOverlayContent } = useOverlay();
@@ -26,6 +27,22 @@ const Navbar = () => {
             <div className="flex flex-col justify-evenly items-center h-full py-5 px-3">
                 <div className="h-1/5 text-gray-700 dark:text-neutral-50 text-xl whitespace-nowrap font-bold">
                     <Logo />
+                </div>
+                <div className="flex flex-col space-y-4">
+                    <a
+                        href="mailto:armaansjaj0129@gmail.com"
+                        className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 text-center"
+                    >
+                        Hire Me
+                    </a>
+                    <a
+                        href="/resume.pdf"
+                        download
+                        className="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full flex items-center gap-2 transition duration-300 text-center"
+                    >
+                        <IoIosDownload className="text-xl" />
+                        Download CV
+                    </a>
                 </div>
                 <nav className="h-3/5 flex flex-col justify-center items-start gap-2">
                     {navLinks.map((navItem: any, idx: number) => (
