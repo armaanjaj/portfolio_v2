@@ -1,12 +1,39 @@
 import Image from "next/image";
-import Link from "next/link";
 import React, { useState, useEffect } from "react";
-import { IoIosArrowRoundForward } from "react-icons/io";
 import { motion, AnimatePresence } from "framer-motion";
-import { blogs } from "../../data";
+import axios from "axios";
+import LoadingSpinner from "./LoadingSpinner";
+
+interface Blog {
+    _id: string;
+    title: string;
+    content: string;
+    imagePath: string;
+    category: string;
+}
 
 const BlogsSection = () => {
     const [currentBlog, setCurrentBlog] = useState(0);
+    const [blogs, setBlogs] = useState<Blog[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [selectedBlogId, setSelectedBlogId] = useState<string | null>(null);
+
+    useEffect(() => {
+        const fetchBlogs = async () => {
+            try {
+                const res = await axios.get("/api/getPosts");
+                const data = res.data.posts;
+                setBlogs(data);
+                setLoading(false);
+            } catch (error) {
+                console.error("Error fetching blogs:", error);
+                setBlogs([]);
+                setLoading(false);
+            }
+        };
+
+        fetchBlogs();
+    }, []);
 
     useEffect(() => {
         let interval: NodeJS.Timeout;
@@ -29,15 +56,22 @@ const BlogsSection = () => {
             }
         };
 
-        document.addEventListener("visibilitychange", handleVisibilityChange);
-
-        startInterval();
+        if (blogs.length > 0) {
+            startInterval();
+            document.addEventListener(
+                "visibilitychange",
+                handleVisibilityChange
+            );
+        }
 
         return () => {
             clearExistingInterval();
-            document.removeEventListener("visibilitychange", handleVisibilityChange);
+            document.removeEventListener(
+                "visibilitychange",
+                handleVisibilityChange
+            );
         };
-    }, []);
+    }, [blogs]);
 
     const imageVariants = {
         enter: {
@@ -70,23 +104,25 @@ const BlogsSection = () => {
         },
     };
 
+    if (loading) {
+        return <LoadingSpinner />;
+    }
+
+    if (blogs.length === 0) {
+        return <div>Something interisting cooking.</div>;
+    }
+
     return (
         <div className="group relative px-3 py-2 w-full h-full overflow-hidden">
             <div className="select-none absolute right-0 -bottom-4 uppercase text-4xl z-[1] opacity-60 font-bold">
                 <h2>blogs</h2>
             </div>
 
-            <div className="absolute left-2 bottom-2 uppercase text-3xl z-[1] bg-white rounded-full font-bold border flex flex-row justify-between items-center">
-                <Link href={blogs[currentBlog].href || "#"}>
-                    <IoIosArrowRoundForward className="group-hover:-rotate-45 transition duration-300 text-gray-800" />
-                </Link>
-            </div>
-
             <AnimatePresence initial={false} mode="wait">
                 {blogs.map((blog, index) =>
                     index === currentBlog ? (
                         <motion.div
-                            key={blog.blogId}
+                            key={blog._id}
                             className="absolute top-0 left-0 right-0 w-full h-full flex flex-col items-center justify-center"
                             initial="enter"
                             animate="center"
@@ -100,7 +136,7 @@ const BlogsSection = () => {
                                 exit="exit"
                                 variants={textVariants}
                             >
-                                <span>{blog.blogTitle}</span>
+                                <span>{blog.title}</span>
                             </motion.div>
 
                             <motion.div
@@ -114,7 +150,7 @@ const BlogsSection = () => {
                                 variants={imageVariants}
                             >
                                 <Image
-                                    src={blog.cover}
+                                    src={"/blogs/"+blog.imagePath}
                                     width={400}
                                     height={350}
                                     alt="Blog Image"

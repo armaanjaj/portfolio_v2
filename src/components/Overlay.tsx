@@ -10,7 +10,7 @@ import NewsletterOverlay from "./NewsletterOverlay";
 import TestimonialOverlay from "./TestimonialOverlay";
 import ContactOverlay from "./ContactOverlay";
 import { motion, AnimatePresence } from "framer-motion";
-import RoadmapOverlay from "./RoadmapOverlay";
+import RoadmapOverlay from "./RoadmapOverlay";;
 
 const Overlay = () => {
     const { isOverlayVisible, overlayContent, hideOverlay } = useOverlay();
