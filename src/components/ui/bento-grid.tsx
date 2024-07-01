@@ -10,6 +10,7 @@ import Skills from "../Skills";
 import AboutMe from "../AboutMe";
 import ViewerCounter from "../ViewerCounter";
 import BlogsSection from "../BlogsSection";
+import RoadmapSection from "../RoadmapSection";
 
 export const BentoGrid = ({
     className,
@@ -218,7 +219,8 @@ export const BentoGridItem = ({
                     className
                 )}
             >
-                <Newsletter />
+                {/* <Newsletter /> */}
+                <RoadmapSection />
             </div>
         );
     }

@@ -10,6 +10,7 @@ import NewsletterOverlay from "./NewsletterOverlay";
 import TestimonialOverlay from "./TestimonialOverlay";
 import ContactOverlay from "./ContactOverlay";
 import { motion, AnimatePresence } from "framer-motion";
+import RoadmapOverlay from "./RoadmapOverlay";
 
 const Overlay = () => {
     const { isOverlayVisible, overlayContent, hideOverlay } = useOverlay();
@@ -50,6 +51,7 @@ const Overlay = () => {
                             {overlayContent === 4 && <NewsletterOverlay />}
                             {overlayContent === 5 && <TestimonialOverlay />}
                             {overlayContent === 6 && <ContactOverlay />}
+                            {overlayContent === 7 && <RoadmapOverlay />}
                         </div>
                     </motion.div>
                 </motion.div>
