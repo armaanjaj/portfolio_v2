@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
-import { BackgroundGradientAnimation } from "./ui/background-gradient-animation";
-import { socialLinks } from "../../data";
+import { BackgroundGradientAnimation } from "../ui/background-gradient-animation";
+import { socialLinks } from "../../../data";
 
 const SocialMedia = () => {
     return (
@@ -21,7 +21,9 @@ const SocialMedia = () => {
                         isCopy={isCopy}
                     >
                         <Icon className="text-2xl md:text-base" />
-                        <span className="text-2xl md:text-base">Copy Email</span>
+                        <span className="text-2xl md:text-base">
+                            Copy Email
+                        </span>
                     </StyledSocialLinks>
                 ))}
 
@@ -69,12 +71,15 @@ const StyledSocialLinks = ({
         setTimeout(() => setCopied(false), 2000);
     };
 
+    const commonClasses =
+        "relative flex items-center group rounded-lg p-1 w-fit mx-auto bg-white text-gray-900 transition-colors duration-300 hover:text-gray-500";
+
     if (isCopy) {
         return (
             <button
-                aria-label={label}
+                aria-label={`Copy ${label}`}
                 onClick={handleCopy}
-                className={`relative flex items-center group rounded-lg p-1 w-fit mx-auto bg-white text-gray-900 transition-colors duration-300 hover:text-gray-500 ${className}`}
+                className={`${commonClasses} ${className}`}
             >
                 {children}
                 {copied && (
@@ -91,7 +96,7 @@ const StyledSocialLinks = ({
             href={href}
             aria-label={label}
             target={target}
-            className={`relative flex items-center group rounded-lg p-1 w-fit mx-auto bg-white text-gray-900 transition-colors duration-300  hover:text-gray-500 ${className}`}
+            className={`${commonClasses} ${className}`}
         >
             {children}
         </Link>

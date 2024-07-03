@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import Image from "next/image";
-import { CircleLoader } from "./Loaders";
+import { CircleLoader } from "../Loaders";
+import useBlog from "../../hooks/useBlog";
 
 interface Blog {
     _id: string;
@@ -11,7 +11,6 @@ interface Blog {
     imagePath: string;
     category: string;
 }
-
 interface SelectedBlogProps {
     blogId?: string;
     blogData?: Blog;
@@ -23,25 +22,7 @@ const SelectedBlog: React.FC<SelectedBlogProps> = ({
     blogData,
     onBack,
 }) => {
-    const [blog, setBlog] = useState<Blog | null>(blogData || null);
-    const [loading, setLoading] = useState(!blogData);
-
-    useEffect(() => {
-        if (blogId && !blogData) {
-            const fetchBlog = async () => {
-                try {
-                    const res = await axios.get(`/api/${blogId}`);
-                    setBlog(res.data);
-                    setLoading(false);
-                } catch (error) {
-                    console.error("Error fetching blog:", error);
-                    setLoading(false);
-                }
-            };
-
-            fetchBlog();
-        }
-    }, [blogId, blogData]);
+    const { blog, loading } = useBlog({ blogId, blogData });
 
     if (loading) {
         return <CircleLoader />;

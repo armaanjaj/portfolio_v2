@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import useViewerCounter from "@/hooks/useViewerCounter";
-import { MiniBarLoader } from "../components/Loaders";
+import { MiniBarLoader } from "../Loaders";
 
 const ViewerCounter = () => {
     const { viewerNumber, getOrdinalSuffix } = useViewerCounter();

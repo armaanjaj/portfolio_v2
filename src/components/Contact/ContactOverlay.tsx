@@ -1,7 +1,5 @@
 import React from "react";
-import { FaMapMarkerAlt, FaPhone, FaEnvelope } from "react-icons/fa";
-import { IoIosSend } from "react-icons/io";
-import { socialLinks } from "../../data";
+import { socialLinks } from "../../../data";
 
 const ContactOverlay = () => {
     return (

@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 import { IoIosArrowRoundForward } from "react-icons/io";
-import UniversalOverlay from "@/views/UniversalOverlay";
+import UniversalOverlay from "@/components/Overlays/UniversalOverlay";
 
 const ProjectsOverlay = ({
     projects,

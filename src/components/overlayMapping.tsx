@@ -1,10 +1,10 @@
 import React from "react";
-import AboutMeOverlay from "./AboutMeOverlay";
-import ProjectsOverlay from "./ProjectsOverlay";
-import BlogsOverlay from "./BlogsOverlay";
-import NewsletterOverlay from "./NewsletterOverlay";
-import TestimonialOverlay from "./TestimonialOverlay";
-import ContactOverlay from "./ContactOverlay";
+import AboutMeOverlay from "./About/AboutMeOverlay";
+import ProjectsOverlay from "./Project/ProjectsOverlay";
+import BlogsOverlay from "./Blog/BlogsOverlay";
+import NewsletterOverlay from "./TO-DO/NewsletterOverlay";
+import TestimonialOverlay from "./TO-DO/TestimonialOverlay";
+import ContactOverlay from "./Contact/ContactOverlay";
 import { projects } from "../../data";
 
 export const overlayMapping: { [key: number]: React.ReactNode } = {

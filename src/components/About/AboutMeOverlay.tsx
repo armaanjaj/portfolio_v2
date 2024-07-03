@@ -16,7 +16,7 @@ import {
     FramermotionIcon,
     FigmaIcon,
 } from "@/utils/icons";
-import { socialLinks } from "../../data";
+import { socialLinks } from "../../../data";
 
 const AboutMeOverlay = () => {
     const [experienceYears, setExperienceYears] = useState(0);

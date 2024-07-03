@@ -3,7 +3,7 @@ import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import SelectedBlog from "./SelectedBlog";
 import Image from "next/image";
-import { CircleLoader } from "./Loaders";
+import { CircleLoader } from "../Loaders";
 
 interface Blog {
     _id: string;

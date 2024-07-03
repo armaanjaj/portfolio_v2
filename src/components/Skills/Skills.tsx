@@ -1,76 +1,10 @@
-import React, { useEffect } from "react";
-import { motion, useAnimation } from "framer-motion";
-import { skills } from "../../data";
+import React from "react";
+import { motion } from "framer-motion";
+import useSkillsAnimation from "@/hooks/useSkillsAnimation";
+import { skills } from "../../../data";
 
 const Skills = () => {
-    const controls = useAnimation();
-    const textControls = useAnimation();
-    const [currentSection, setCurrentSection] = React.useState(0);
-
-    const cycleAnimation = async () => {
-        while (true) {
-            // Show content for 2.5 seconds
-            await new Promise((resolve) => setTimeout(resolve, 2500));
-
-            // Animate text out first
-            await textControls.start({
-                opacity: 0,
-                transition: {
-                    duration: 0.5,
-                    ease: "linear",
-                },
-            });
-
-            // Animate icons out after text
-            await controls.start({
-                y: -window.innerHeight,
-                opacity: [1, 1, 0],
-                transition: {
-                    duration: 0.5,
-                    ease: "linear",
-                },
-            });
-
-            // Set next section
-            setCurrentSection(
-                (prevSection) => (prevSection + 1) % skills.length
-            );
-
-            // Move to the next section with both hidden
-            controls.set({
-                y: window.innerHeight,
-                opacity: 0,
-            });
-            textControls.set({
-                opacity: 0,
-            });
-
-            // Animate icons in first
-            await controls.start({
-                y: 0,
-                opacity: [0, 1],
-                transition: {
-                    duration: 0.5,
-                    ease: "linear",
-                },
-            });
-
-            // Animate text in after icons
-            await textControls.start({
-                opacity: 0.1,
-                transition: {
-                    duration: 0.5,
-                    ease: "linear",
-                },
-            });
-
-            await new Promise((resolve) => setTimeout(resolve, 1000));
-        }
-    };
-
-    useEffect(() => {
-        cycleAnimation();
-    }, []);
+    const { controls, textControls, currentSection } = useSkillsAnimation();
 
     return (
         <div

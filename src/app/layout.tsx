@@ -3,7 +3,7 @@ import { Roboto_Condensed } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/utils/Provider";
 import { OverlayProvider } from "@/context/OverlayContext";
-import Overlay from "@/views/Overlay";
+import Overlay from "@/components/Overlays/Overlay";
 
 const robotoCondensed = Roboto_Condensed({
     subsets: ["latin"],
@@ -23,7 +23,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html  suppressHydrationWarning lang="en">
+        <html suppressHydrationWarning lang="en">
             <body className={robotoCondensed.className}>
                 {/* <body> */}
                 <ThemeProvider

@@ -1,11 +1,11 @@
 import Link from "next/link";
 import React from "react";
-import { navLinks } from "../../data/index";
+import { navLinks } from "../../../data/index";
 import { cn } from "@/utils/cn";
-import Logo from "./Logo";
+import Logo from "../Logo";
 import { useOverlay } from "@/context/OverlayContext";
 import { IoIosDownload } from "react-icons/io";
-import { overlayMapping } from "./overlayMapping";
+import { overlayMapping } from "../overlayMapping";
 import GitHubInfo from "./GitHubInfo";
 
 const Navbar = () => {

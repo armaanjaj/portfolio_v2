@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { roadmapData } from "../../data";
+import { roadmapData } from "../../../data";
 
 interface Roadmap {
     id: number;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { ProjectsCard } from "./ProjectsCard";
-import { projects } from "../../data/index";
+import { ProjectsSection } from "./ProjectsSection";
+import { projects } from "../../../data/index";
 import { motion, AnimatePresence } from "framer-motion";
 import { IoIosArrowRoundForward } from "react-icons/io";
 
@@ -65,7 +65,7 @@ export function DynamicProjectsCard() {
                     variants={transitionVariants}
                     className="w-full h-full relative"
                 >
-                    <ProjectsCard project={projects[currentProjectIndex]} />
+                    <ProjectsSection project={projects[currentProjectIndex]} />
                 </motion.div>
             </AnimatePresence>
             <div

@@ -1,5 +1,5 @@
 import React from "react";
-import { MiniBarLoader } from "./Loaders";
+import { MiniBarLoader } from "../Loaders";
 import Link from "next/link";
 import { RiStarSLine } from "react-icons/ri";
 import { SocialGitHubIcon } from "@/utils/icons";

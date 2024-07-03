@@ -18,11 +18,11 @@ interface Project {
     colors: string[];
 }
 
-interface ProjectsCardProps {
+interface ProjectsSectionProps {
     project: Project;
 }
 
-export function ProjectsCard({ project }: ProjectsCardProps) {
+export function ProjectsSection({ project }: ProjectsSectionProps) {
     const isOneLink =
         project.links[0] === "" || project.links[1] === "" ? true : false;
 
