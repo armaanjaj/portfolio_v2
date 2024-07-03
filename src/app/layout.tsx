@@ -3,7 +3,7 @@ import { Roboto_Condensed } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/utils/Provider";
 import { OverlayProvider } from "@/context/OverlayContext";
-import Overlay from "@/components/Overlay";
+import Overlay from "@/views/Overlay";
 
 const robotoCondensed = Roboto_Condensed({
     subsets: ["latin"],

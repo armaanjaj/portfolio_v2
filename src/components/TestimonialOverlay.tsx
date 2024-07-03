@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
 
 const TestimonialOverlay = () => {
-  return (
-    <div className="h-full w-full flex flex-col justify-start items-start gap-5">
-      Testimonial Overlay
-    </div>
-  )
-}
+    return (
+        <div className="h-full w-full flex flex-col justify-start items-start gap-5">
+            Testimonial Overlay
+            {/* TO-IMPLEMENT */}
+        </div>
+    );
+};
 
-export default TestimonialOverlay
+export default TestimonialOverlay;

@@ -1,27 +1,11 @@
 "use client";
-import React, { useEffect } from "react";
-import { useOverlay } from "@/context/OverlayContext";
+import React from "react";
 import { IoClose } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
+import useOverlayLogic from "@/hooks/useOverlayLogic";
 
 const Overlay = () => {
-    const { isOverlayVisible, overlayContent, hideOverlay } = useOverlay();
-
-    const handleClose = () => {
-        hideOverlay();
-    };
-
-    useEffect(() => {
-        if (isOverlayVisible) {
-            document.body.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "auto";
-        }
-
-        return () => {
-            document.body.style.overflow = "auto";
-        };
-    }, [isOverlayVisible]);
+    const { isOverlayVisible, overlayContent, hideOverlay } = useOverlayLogic();
 
     return (
         <AnimatePresence>
@@ -34,7 +18,7 @@ const Overlay = () => {
                     transition={{ duration: 0.3 }}
                 >
                     <button
-                        onClick={handleClose}
+                        onClick={hideOverlay}
                         className="absolute top-5 right-5 text-xl font-bold dark:text-black text-white p-2 bg-gray-900 dark:bg-white rounded-full"
                     >
                         <IoClose className="text-2xl font-bold" />

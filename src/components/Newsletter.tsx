@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { IoSend } from "react-icons/io5";
-// import BorderButton from "./BorderButton";
+
+// TO-IMPLEMENT YET
 
 const Newsletter = () => {
     const [email, setEmail] = useState("");
@@ -8,8 +9,6 @@ const Newsletter = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // Here you can add the logic to handle the email submission
-        // For example, sending it to an API endpoint
         setSubmitted(true);
     };
 
@@ -35,14 +34,6 @@ const Newsletter = () => {
                         onChange={(e) => setEmail(e.target.value)}
                         required
                     />
-                    {/* <a href="">
-                        <BorderButton
-                            title="Subscribe"
-                            icon={<FaLocationArrow />}
-                            position="right"
-                            otherClasses="dark:hover:bg-[#ffffff] dark:bg-[#F7F2F2] hover:bg-gray-800 transition-colors bg-gray-900 dark:text-gray-800 text-gray-200"
-                        />
-                    </a> */}
                     <button type="submit" className="px-6 py-2 rounded-3xl bg-[#ffffff] hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors dark:bg-gray-900 text-gray-800 dark:text-gray-200 w-fit border flex flex-row justify-center items-center gap-2 flex-nowrap">
                         Subscribe <IoSend  />
                     </button>

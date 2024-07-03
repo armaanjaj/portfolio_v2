@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
 
 const NewsletterOverlay = () => {
-  return (
-    <div className="h-full w-full flex flex-col justify-start items-start gap-5">
-      Read newsletters
-    </div>
-  )
-}
+    return (
+        <div className="h-full w-full flex flex-col justify-start items-start gap-5">
+            Read newsletters
+            {/* TO-IMPLEMENT */}
+        </div>
+    );
+};
 
-export default NewsletterOverlay
+export default NewsletterOverlay;
