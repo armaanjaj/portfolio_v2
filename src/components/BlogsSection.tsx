@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import axios from "axios";
-import LoadingSpinner from "./LoadingSpinner";
+import { CircleLoader } from "./Loaders";
 
 interface Blog {
     _id: string;
@@ -99,7 +99,7 @@ const BlogsSection = () => {
     };
 
     if (loading) {
-        return <LoadingSpinner />;
+        return <CircleLoader />;
     }
 
     if (blogs.length === 0) {

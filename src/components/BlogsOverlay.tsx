@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import SelectedBlog from "./SelectedBlog";
-import LoadingSpinner from "./LoadingSpinner";
 import Image from "next/image";
+import { CircleLoader } from "./Loaders";
 
 interface Blog {
     _id: string;
@@ -34,7 +34,7 @@ const BlogsOverlay = () => {
     }, []);
 
     if (loading) {
-        return <LoadingSpinner />;
+        return <CircleLoader />;
     }
 
     return (

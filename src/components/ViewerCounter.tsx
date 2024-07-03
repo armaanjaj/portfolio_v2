@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { jwtDecode } from "jwt-decode";
+import { MiniBarLoader } from "./Loaders";
 
 interface ViewerResponse {
     savedViewer: {
@@ -70,7 +71,7 @@ const ViewerCounter = () => {
     return (
         <div className="relative px-3 py-2 h-full w-full flex flex-col justify-center items-center gap-2">
             {viewerNumber === null ? (
-                <Loader />
+                <MiniBarLoader />
             ) : (
                 <div className="text-center">
                     {viewerNumber ? (

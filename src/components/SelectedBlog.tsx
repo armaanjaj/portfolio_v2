@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import Image from "next/image";
-import LoadingSpinner from "./LoadingSpinner";
+import { CircleLoader } from "./Loaders";
 
 interface Blog {
     _id: string;
@@ -44,7 +44,7 @@ const SelectedBlog: React.FC<SelectedBlogProps> = ({
     }, [blogId, blogData]);
 
     if (loading) {
-        return <LoadingSpinner />;
+        return <CircleLoader />;
     }
 
     if (!blog) {

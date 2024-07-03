@@ -2,15 +2,7 @@
 import React, { useEffect } from "react";
 import { useOverlay } from "@/context/OverlayContext";
 import { IoClose } from "react-icons/io5";
-import { projects } from "../../data";
-import ProjectsOverlay from "./ProjectsOverlay";
-import AboutMeOverlay from "./AboutMeOverlay";
-import BlogsOverlay from "./BlogsOverlay";
-import NewsletterOverlay from "./NewsletterOverlay";
-import TestimonialOverlay from "./TestimonialOverlay";
-import ContactOverlay from "./ContactOverlay";
 import { motion, AnimatePresence } from "framer-motion";
-import RoadmapOverlay from "./RoadmapOverlay";
 
 const Overlay = () => {
     const { isOverlayVisible, overlayContent, hideOverlay } = useOverlay();
@@ -55,15 +47,7 @@ const Overlay = () => {
                         transition={{ duration: 0.3 }}
                     >
                         <div className="overflow-y-auto styledScrollBar h-full w-full">
-                            {overlayContent === 1 && <AboutMeOverlay />}
-                            {overlayContent === 2 && <BlogsOverlay />}
-                            {overlayContent === 3 && (
-                                <ProjectsOverlay projects={projects} />
-                            )}
-                            {overlayContent === 4 && <NewsletterOverlay />}
-                            {overlayContent === 5 && <TestimonialOverlay />}
-                            {overlayContent === 6 && <ContactOverlay />}
-                            {overlayContent === 7 && <RoadmapOverlay />}
+                            {overlayContent}
                         </div>
                     </motion.div>
                 </motion.div>
