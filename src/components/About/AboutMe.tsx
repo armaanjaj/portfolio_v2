@@ -16,7 +16,7 @@ const AboutMe = () => {
                 <h1>About me</h1>
             </div>
             <div className="text-sm xl:text-lg 2xl:text-xl font-bold 2xl:mb-2 ml-3">
-                Hey, I'm Armaan!
+                Hey, I&apos;m Armaan!
             </div>
             <div
                 className="absolute bottom-4 -right-16 h-28 w-60"

@@ -63,7 +63,7 @@ const useSkillsAnimation = () => {
 
     useEffect(() => {
         cycleAnimation();
-    }, []);
+    }, [cycleAnimation]);
 
     return { controls, textControls, currentSection };
 };

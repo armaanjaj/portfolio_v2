@@ -134,8 +134,8 @@ const AboutMeOverlay = () => {
                         Fun Facts
                     </h3>
                     <p className="text-center text-gray-700 dark:text-gray-300">
-                        When I'm not coding, I love to explore the outdoors and
-                        enjoy a good hike. I'm also a huge fan of sci-fi movies
+                        When I&apos;m not coding, I love to explore the outdoors and
+                        enjoy a good hike. I&apos;m also a huge fan of sci-fi movies
                         and books!
                     </p>
                     <div className="flex justify-around w-full">
@@ -224,10 +224,10 @@ const AboutMeOverlay = () => {
                     My Story
                 </h3>
                 <p className="text-lg lg:text-xl text-gray-700 dark:text-gray-300 mb-4">
-                    Ever since I was a child, I've had a deep fascination with
+                    Ever since I was a child, I&apos;ve had a deep fascination with
                     art, designing, and sketching. This love for creativity
-                    didn't just fade away; it evolved as I grew older. Today, it
-                    manifests in my passion for designing and programming. I’ve
+                    didn&apos;t just fade away; it evolved as I grew older. Today, it
+                    manifests in my passion for designing and programming. I&apos;ve
                     always enjoyed experimenting with new ideas and bringing
                     them to life through code.
                 </p>
@@ -237,7 +237,7 @@ const AboutMeOverlay = () => {
                     growth, and a lot of coding marathons.
                 </p>
                 <p className="text-lg lg:text-xl text-gray-700 dark:text-gray-300 mb-4">
-                    When I'm not coding, you can find me indulging in my other
+                    When I&apos;m not coding, you can find me indulging in my other
                     hobbies like singing, sketching, and playing the guitar.
                     Nature is my sanctuary, and I often find myself journaling
                     while soaking in the beauty of the great outdoors. I mean,
@@ -245,10 +245,10 @@ const AboutMeOverlay = () => {
                     introspective writing?
                 </p>
                 <p className="text-lg lg:text-xl text-gray-700 dark:text-gray-300 mb-4">
-                    So, that's me in a nutshell. A curious mind with a love for
+                    So, that&apos;s me in a nutshell. A curious mind with a love for
                     art and technology, always ready to dive into the next big
                     adventure—be it a new project, a challenging problem, or
-                    simply exploring a new trail. Let’s create something amazing
+                    simply exploring a new trail. Let&apos;s create something amazing
                     together!
                 </p>
             </div>

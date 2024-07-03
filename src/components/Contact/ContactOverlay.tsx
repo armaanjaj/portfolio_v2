@@ -5,7 +5,7 @@ const ContactOverlay = () => {
     return (
         <div className="h-full w-full flex flex-col justify-start items-start gap-5 relative">
             <span className="font-bold uppercase text-3xl">Contact</span>
-            <div>Let's get in touch and create something amazing together!</div>
+            <div>Let&apos;s get in touch and create something amazing together!</div>
             <div className="flex flex-row justify-center items-center gap-8 w-full h-1/2">
                 {socialLinks.map(
                     (link, index) =>
