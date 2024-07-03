@@ -1,9 +1,7 @@
-"use client";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { jwtDecode } from "jwt-decode";
-import { MiniBarLoader } from "./Loaders";
 
 interface ViewerResponse {
     savedViewer: {
@@ -30,7 +28,7 @@ const getOrdinalSuffix = (num: number): string => {
     }
 };
 
-const ViewerCounter = () => {
+const useViewerCounter = () => {
     const [viewerNumber, setViewerNumber] = useState<string | null>(null);
 
     useEffect(() => {
@@ -68,36 +66,7 @@ const ViewerCounter = () => {
         }
     }, []);
 
-    return (
-        <div className="relative px-3 py-2 h-full w-full flex flex-col justify-center items-center gap-2">
-            {viewerNumber === null ? (
-                <MiniBarLoader />
-            ) : (
-                <div className="text-center">
-                    {viewerNumber ? (
-                        <p className="font-semibold text-purple-400 text-md">
-                            {`You are the ${viewerNumber}${getOrdinalSuffix(
-                                Number(viewerNumber)
-                            )} viewer.`}
-                        </p>
-                    ) : (
-                        <p className="font-semibold text-purple-400 text-md">
-                            Could not fetch viewer number.
-                        </p>
-                    )}
-                </div>
-            )}
-            <span className="text-lg lg:hidden 2xl:block text-gray-300 text-center">
-                I hope you are liking it here.
-            </span>
-        </div>
-    );
+    return { viewerNumber, getOrdinalSuffix };
 };
 
-const Loader = () => (
-    <div className="relative w-[90%] mx-auto h-4 bg-gray-200 rounded-lg overflow-hidden">
-        <div className="absolute inset-0 bg-purple-400 animate-pulse rounded-lg" />
-    </div>
-);
-
-export default ViewerCounter;
+export default useViewerCounter;
