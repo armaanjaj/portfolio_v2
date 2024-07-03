@@ -134,9 +134,9 @@ const AboutMeOverlay = () => {
                         Fun Facts
                     </h3>
                     <p className="text-center text-gray-700 dark:text-gray-300">
-                        When I&apos;m not coding, I love to explore the outdoors and
-                        enjoy a good hike. I&apos;m also a huge fan of sci-fi movies
-                        and books!
+                        When I&apos;m not coding, I love to explore the outdoors
+                        and enjoy a good hike. I&apos;m also a huge fan of
+                        sci-fi movies and books!
                     </p>
                     <div className="flex justify-around w-full">
                         <div className="flex flex-col items-center">
@@ -160,7 +160,7 @@ const AboutMeOverlay = () => {
                 {/* Skills Section */}
                 <div className="flex flex-col justify-start gap-5 items-center bg-white dark:bg-gray-900 rounded-lg p-5 shadow-lg transform transition duration-300 hover:neon-glow overflow-y-auto styledScrollBar">
                     <h3 className="font-bold text-3xl text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 animate-gradient">
-                        I've worked with
+                        I&apos;ve worked with
                     </h3>
                     <ul className="grid grid-cols-2 gap-4 text-xl text-gray-700 dark:text-gray-300">
                         <li className="flex items-center gap-3">
@@ -224,12 +224,12 @@ const AboutMeOverlay = () => {
                     My Story
                 </h3>
                 <p className="text-lg lg:text-xl text-gray-700 dark:text-gray-300 mb-4">
-                    Ever since I was a child, I&apos;ve had a deep fascination with
-                    art, designing, and sketching. This love for creativity
-                    didn&apos;t just fade away; it evolved as I grew older. Today, it
-                    manifests in my passion for designing and programming. I&apos;ve
-                    always enjoyed experimenting with new ideas and bringing
-                    them to life through code.
+                    Ever since I was a child, I&apos;ve had a deep fascination
+                    with art, designing, and sketching. This love for creativity
+                    didn&apos;t just fade away; it evolved as I grew older.
+                    Today, it manifests in my passion for designing and
+                    programming. I&apos;ve always enjoyed experimenting with new
+                    ideas and bringing them to life through code.
                 </p>
                 <p className="text-lg lg:text-xl text-gray-700 dark:text-gray-300 mb-4">
                     I studied at SAIT, where I learned an incredible amount and
@@ -237,19 +237,19 @@ const AboutMeOverlay = () => {
                     growth, and a lot of coding marathons.
                 </p>
                 <p className="text-lg lg:text-xl text-gray-700 dark:text-gray-300 mb-4">
-                    When I&apos;m not coding, you can find me indulging in my other
-                    hobbies like singing, sketching, and playing the guitar.
-                    Nature is my sanctuary, and I often find myself journaling
-                    while soaking in the beauty of the great outdoors. I mean,
-                    who doesn't love a good hike followed by a bit of
-                    introspective writing?
+                    When I&apos;m not coding, you can find me indulging in my
+                    other hobbies like singing, sketching, and playing the
+                    guitar. Nature is my sanctuary, and I often find myself
+                    journaling while soaking in the beauty of the great
+                    outdoors. I mean, who doesn&apos;t love a good hike followed
+                    by a bit of introspective writing?
                 </p>
                 <p className="text-lg lg:text-xl text-gray-700 dark:text-gray-300 mb-4">
-                    So, that&apos;s me in a nutshell. A curious mind with a love for
-                    art and technology, always ready to dive into the next big
-                    adventure—be it a new project, a challenging problem, or
-                    simply exploring a new trail. Let&apos;s create something amazing
-                    together!
+                    So, that&apos;s me in a nutshell. A curious mind with a love
+                    for art and technology, always ready to dive into the next
+                    big adventure—be it a new project, a challenging problem, or
+                    simply exploring a new trail. Let&apos;s create something
+                    amazing together!
                 </p>
             </div>
             {/* Favorites Section */}
@@ -268,8 +268,9 @@ const AboutMeOverlay = () => {
                                     Captain America: The Winter Soldier
                                 </p>
                                 <p className="text-sm lg:text-md text-gray-500 dark:text-gray-400">
-                                    "A perfect blend of action, storytelling,
-                                    and character development."
+                                    &lsquo;A perfect blend of action,
+                                    storytelling, and character
+                                    development.&rsquo;
                                 </p>
                             </div>
                             <div className="flex flex-col justify-start items-start gap-2">
@@ -277,8 +278,8 @@ const AboutMeOverlay = () => {
                                     The Social Network
                                 </p>
                                 <p className="text-sm lg:text-md text-gray-500 dark:text-gray-400">
-                                    "An intriguing look into the rise of social
-                                    media giant Facebook."
+                                    &lsquo;An intriguing look into the rise of
+                                    social media giant Facebook.&lsquo;
                                 </p>
                             </div>
                         </div>

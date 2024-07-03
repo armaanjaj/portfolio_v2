@@ -59,7 +59,7 @@ const AboutMe = () => {
                                 transition={{ delay: 0.2 }}
                                 className="text-sm xl:text-lg 2xl:text-xl font-bold 2xl:mb-2"
                             >
-                                Hey, I'm Armaan!
+                                Hey, I&apos;m Armaan!
                             </motion.p>
                             <motion.p
                                 initial={{ opacity: 0 }}
