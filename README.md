@@ -1,6 +1,6 @@
 # armaancodes.com - v2
 
-Welcome to **Project Title**, a beautifully crafted and high-performance application showcasing my skills in web development and design. Explore the diverse range of projects, technologies, and unique features that make this portfolio stand out.
+Welcome to the second iteration of my portfolio, built using Next.js, Acertenity UI to create a stunning and modern design. This project showcases my skills in web development and design, offering a diverse range of projects, technologies, and unique features that highlight my expertise and creativity.
 
 ## Table of Contents
 
