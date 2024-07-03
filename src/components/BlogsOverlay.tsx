@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { motion, AnimatePresence } from "framer-motion";
 import SelectedBlog from "./SelectedBlog";
 import LoadingSpinner from "./LoadingSpinner";
 import Image from "next/image";
@@ -36,21 +37,57 @@ const BlogsOverlay = () => {
         return <LoadingSpinner />;
     }
 
-    if (selectedBlog) {
-        return (
-            <SelectedBlog
-                blogData={selectedBlog}
-                onBack={() => setSelectedBlog(null)}
-            />
-        );
-    }
-
     return (
         <div className="h-full w-full flex flex-col justify-start items-start gap-5 pr-2">
             <span className="font-bold uppercase text-3xl">Blogs</span>
             <div>Catch Up on My Latest Stories</div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-                <BlogCards blogs={blogs} handler={setSelectedBlog} />
+            <div className="relative w-full h-full overflow-hidden">
+                <AnimatePresence>
+                    {!selectedBlog && (
+                        <motion.div
+                            initial={{ x: 0 }}
+                            animate={{ x: 0 }}
+                            exit={{ x: "100%" }}
+                            transition={{ duration: 0.5 }}
+                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full"
+                        >
+                            {blogs.length === 0 ? (
+                                <div className="col-span-1 md:col-span-2 lg:col-span-3 flex justify-center items-center h-full">
+                                    <div className="text-center">
+                                        <h2 className="text-2xl font-semibold text-gray-500 dark:text-gray-400 mb-2">
+                                            No Blogs Found
+                                        </h2>
+                                        <p className="text-gray-400 dark:text-gray-500">
+                                            Please check back later for more
+                                            content.
+                                        </p>
+                                    </div>
+                                </div>
+                            ) : (
+                                <BlogCards
+                                    blogs={blogs}
+                                    handler={setSelectedBlog}
+                                />
+                            )}
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+                <AnimatePresence>
+                    {selectedBlog && (
+                        <motion.div
+                            initial={{ x: "-100%" }}
+                            animate={{ x: 0 }}
+                            exit={{ x: 0 }}
+                            transition={{ duration: 0.5 }}
+                            className="absolute inset-0"
+                        >
+                            <SelectedBlog
+                                blogData={selectedBlog}
+                                onBack={() => setSelectedBlog(null)}
+                            />
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
         </div>
     );
@@ -67,7 +104,7 @@ const BlogCards: React.FC<BlogCardsProps> = ({ blogs, handler }) => {
             {blogs.map((blog) => (
                 <div
                     key={blog._id}
-                    className="group relative bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-200 dark:border-gray-700"
+                    className="group relative bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-200 dark:border-gray-700 cursor-pointer"
                     onClick={() => handler(blog)}
                 >
                     <div className="relative h-56 overflow-hidden">
@@ -88,9 +125,6 @@ const BlogCards: React.FC<BlogCardsProps> = ({ blogs, handler }) => {
                             {blog.category}
                         </p>
                     </div>
-                    {/* <div className="absolute top-4 right-4 bg-purple-600 text-white text-xs px-2 py-1 rounded-full shadow-md transition-transform duration-300 group-hover:scale-110">
-                        New
-                    </div> */}
                 </div>
             ))}
         </>

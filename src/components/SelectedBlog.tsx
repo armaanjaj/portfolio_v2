@@ -52,7 +52,7 @@ const SelectedBlog: React.FC<SelectedBlogProps> = ({
     }
 
     return (
-        <div className="h-full w-full flex flex-col justify-start items-start gap-14 pr-3">
+        <div className="h-full w-full flex flex-col justify-start items-start gap-14 pr-3 overflow-x-hidden styledScrollBar">
             <button
                 onClick={onBack}
                 className="flex flex-row justify-start items-center gap-2 rounded-full bg-purple-600 text-white px-4 py-2 hover:bg-purple-700 transition-colors duration-300"
@@ -75,7 +75,6 @@ const SelectedBlog: React.FC<SelectedBlogProps> = ({
                 </div>
                 <div
                     className="prose lg:prose-xl dark:prose-dark break-words"
-                    style={{ whiteSpace: "pre-wrap" }}
                     dangerouslySetInnerHTML={{ __html: blog.content }}
                 />
             </div>

@@ -33,15 +33,15 @@ const Navbar = () => {
                         href="mailto:armaansjaj0129@gmail.com"
                         className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 text-center"
                     >
-                        Hire Me
+                        <span className="text-sm">Hire Me</span>
                     </a>
                     <a
                         href="/resume.pdf"
                         download
-                        className="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full flex items-center gap-2 transition duration-300 text-center"
+                        className="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full flex flex-row flex-nowrap items-center justify-between gap-2 transition duration-300 text-center w-full"
                     >
                         <IoIosDownload className="text-xl" />
-                        Download CV
+                        <span className="text-sm">Download CV</span>
                     </a>
                 </div>
                 <nav className="h-3/5 flex flex-col justify-center items-start gap-2">
@@ -60,12 +60,9 @@ const Navbar = () => {
                         </Link>
                     ))}
                 </nav>
-                <div className="h-1/5 flex flex-col justify-center items-center">
-                    <ModeToggle />
+                <div className="w-full">
+                    <ProjectGitHub />
                 </div>
-            </div>
-            <div className="absolute bottom-1 left-0 w-full z-10">
-                <ProjectGitHub />
             </div>
         </header>
     );
@@ -128,26 +125,9 @@ const ProjectGitHub = () => {
 };
 
 const Loader = () => (
-    <svg
-        className="animate-spin h-5 w-5 text-green-400"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-    >
-        <circle
-            className="opacity-25"
-            cx="12"
-            cy="12"
-            r="10"
-            stroke="currentColor"
-            strokeWidth="4"
-        ></circle>
-        <path
-            className="opacity-75"
-            fill="currentColor"
-            d="M4 12a8 8 0 018-8v8H4z"
-        ></path>
-    </svg>
+    <div className="relative w-[90%] mx-auto h-4 bg-gray-200 rounded-lg overflow-hidden">
+        <div className="absolute inset-0 bg-purple-400 animate-pulse rounded-lg" />
+    </div>
 );
 
 export default Navbar;

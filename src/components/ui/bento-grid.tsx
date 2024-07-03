@@ -27,7 +27,7 @@ export const BentoGrid = ({
     return (
         <div
             className={cn(
-                "grid grid-cols-1 gap-4 xl:gap-4 2xl:gap-6 w-[95vw] h-full lg:w-[75vw] lg:h-[75vh] xl:w-[80vw] xl:h-[80vh] 2xl:w-[85vw] 2xl:h-[85vh] mx-auto px-5 md:grid-cols-6 md:grid-rows-5 md:overflow-hidden py-10 lg:py-0",
+                "grid grid-cols-1 gap-4 xl:gap-4 2xl:gap-6 w-[95vw] h-full lg:w-[75vw] lg:max-h-dvh xl:w-[80vw] xl:h-[80vh] 2xl:w-[85vw] 2xl:h-[85vh] mx-auto px-5 md:grid-cols-6 md:grid-rows-5 md:overflow-hidden py-10 lg:py-0",
                 className
             )}
         >
@@ -109,7 +109,7 @@ export const BentoGridItem = ({
             <>
                 <div
                     className={cn(
-                        "relative sm:hidden rounded-xl transition shadow-sm duration-700 dark:shadow-none h-52 w-full lg:h-full  dark:border-white/[0.2] border border-transparent flex flex-col justify-center items-center gap-10 overflow-hidden bg-gray-900 z-0 dark:text-white text-gray-900",
+                        "relative sm:hidden rounded-xl transition shadow-sm duration-700 dark:shadow-none h-52 w-full lg:h-full dark:border-white/[0.2] border border-transparent flex flex-col justify-center items-center gap-10 overflow-hidden bg-gray-900 z-0 dark:text-white text-gray-900",
                         getGridColumn(id),
                         getGridRow(id),
                         className
@@ -193,7 +193,7 @@ export const BentoGridItem = ({
         return (
             <div
                 className={cn(
-                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none h-52 w-full lg:h-full  dark:border-white/[0.2] border border-transparent flex flex-col justify-center items-center overflow-hidden bg-gray-900 z-0",
+                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none h-52 w-full lg:h-full dark:border-white/[0.2] border border-transparent flex flex-col justify-center items-center overflow-hidden bg-gray-900 z-0",
                     getGridColumn(id),
                     getGridRow(id),
                     className
@@ -208,7 +208,7 @@ export const BentoGridItem = ({
         return (
             <div
                 className={cn(
-                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none h-52 w-full lg:h-full  dark:border-white/[0.2] border border-transparent flex flex-col justify-center items-center overflow-hidden bg-gray-900 z-0 dark:text-white text-gray-900",
+                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none h-52 w-full lg:h-full dark:border-white/[0.2] border border-transparent flex flex-col justify-center items-center overflow-hidden bg-gray-900 z-0 dark:text-white text-gray-900",
                     getGridColumn(id),
                     getGridRow(id),
                     className
@@ -222,7 +222,7 @@ export const BentoGridItem = ({
         return (
             <div
                 className={cn(
-                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none h-52 w-full lg:h-full  dark:border-white/[0.2] border border-transparent flex flex-col justify-center items-center overflow-hidden",
+                    "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none h-52 w-full lg:h-full dark:border-white/[0.2] border border-transparent flex flex-col justify-center items-center overflow-hidden",
                     getGridColumn(id),
                     getGridRow(id),
                     className
@@ -264,7 +264,7 @@ export const BentoGridItem = ({
     return (
         <div
             className={cn(
-                "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none h-52 w-full lg:h-full  dark:border-white/[0.2] border border-transparent flex flex-col justify-center items-center overflow-hidden bg-gray-900 z-0 dark:text-white text-gray-900",
+                "relative rounded-xl transition shadow-sm duration-700 dark:shadow-none h-52 w-full lg:h-full dark:border-white/[0.2] border border-transparent flex flex-col justify-center items-center overflow-hidden bg-gray-900 z-0 dark:text-white text-gray-900",
                 getGridColumn(id),
                 getGridRow(id),
                 className

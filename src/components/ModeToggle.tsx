@@ -24,7 +24,7 @@ export default function ModeToggle() {
 
     return (
         <div className="relative flex flex-col justify-center items-center">
-            <div className="absolute h-16 w-16 flex items-center justify-center z-0">
+            <div className="absolute h-16 w-16 flex items-center justify-center z-[1]">
                 <div className="w-16 h-16 rounded-full bg-white border-2 border-gray-300 shadow-lg" />
             </div>
             <div

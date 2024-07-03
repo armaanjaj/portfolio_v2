@@ -43,7 +43,7 @@ export const projects = [
     {
         id: 1,
         title: "We-DD",
-        des: "Taxi booking website for a Calgary based company and increased their revenue.",
+        des: "Developed a comprehensive taxi booking platform for a Calgary-based company, significantly boosting their revenue. The website features a user-friendly interface for booking taxis. The project was built using modern web technologies to ensure a seamless and responsive user experience.",
         img: "/p1.png",
         links: [
             "https://we-dd.vercel.app/",
@@ -55,7 +55,7 @@ export const projects = [
     {
         id: 2,
         title: "My Inventory",
-        des: "Recreated a Java based inventory as a school project to enhance it's capabilities.",
+        des: "Enhanced a school project by recreating a Java-based inventory management system, expanding its functionalities and improving its performance. The new system offers advanced inventory tracking, reporting features, and a modern user interface, making it easier for users to manage their stock efficiently.",
         img: "/p2.png",
         links: ["", "https://github.com/armaanjaj/myinventory"],
         iconLists: [ReactIcon, TailwindCSSIcon, JSIcon, MongoDBIcon],
@@ -64,7 +64,7 @@ export const projects = [
     {
         id: 3,
         title: "Portfolio V1",
-        des: "First version of my personal portfolio website. Used great animations.",
+        des: "Designed and developed the first version of my personal portfolio website, showcasing my skills and projects with visually appealing animations. The website highlights my expertise in web development through dynamic content, smooth transitions, and an intuitive layout, providing an engaging experience for visitors.",
         img: "/p3.png",
         links: [
             "https://www.armaancodes.com/v1",
@@ -81,7 +81,7 @@ export const projects = [
     {
         id: 4,
         title: "Sumit Nanda Real Estate",
-        des: "A personal website with admin panel for real estate professional.",
+        des: "Created a professional website and admin panel for a real estate agent, enabling efficient property management and client interactions. The platform includes property listings, search functionality, and a secure admin panel for managing content. It offers a sleek design and seamless user experience tailored to the needs of the real estate industry.",
         img: "/p4.png",
         links: [
             "https://www.sumitnanda.ca/",
@@ -98,7 +98,7 @@ export const projects = [
     {
         id: 5,
         title: "Morning Star Contractors",
-        des: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..",
+        des: "Developed a comprehensive and visually appealing website for Morning Star Contractors, a general construction company. The site provides detailed information about the company's services, which include various construction and renovation solutions. It also features a blog section, contact forms, and an organized list of services to enhance user engagement and facilitate easy communication. The website is designed to be user-friendly and responsive, ensuring a seamless experience across all devices.",
         img: "/p5.png",
         links: ["https://www.morningstarcontractors.ca/", ""],
         iconLists: [
@@ -244,56 +244,8 @@ export const socialLinks = [
         label: "Email",
         target: "",
         icon: MailIcon,
-        className: "",
+        className: "flex flex-row justify-around items-center gap-3",
         isCopy: true,
-    },
-];
-
-export const blogs = [
-    {
-        blogId: 1,
-        blogTitle: "The Rise of JavaScript Frameworks in 2024",
-        blogDescription:
-            "A deep dive into the latest JavaScript frameworks gaining traction this year and how they're shaping the future of web development.",
-        dateCreated: "2024-01-15",
-        href: "/blogs/rise-of-js-frameworks-2024",
-        cover: "/b1.jpg",
-    },
-    {
-        blogId: 2,
-        blogTitle: "AI in Software Development: Trends and Predictions",
-        blogDescription:
-            "Exploring the impact of artificial intelligence on software development, current trends, and what to expect in the coming years.",
-        dateCreated: "2024-02-10",
-        href: "/blogs/ai-in-software-development",
-        cover: "/b2.jpg",
-    },
-    {
-        blogId: 3,
-        blogTitle: "A Guide to Full-Stack Development in 2024",
-        blogDescription:
-            "Everything you need to know about becoming a full-stack developer this year, including the essential tools and technologies.",
-        dateCreated: "2024-03-05",
-        href: "/blogs/guide-to-full-stack-development",
-        cover: "/b3.jpg",
-    },
-    {
-        blogId: 4,
-        blogTitle: "Top 10 DevOps Practices for Efficient Software Delivery",
-        blogDescription:
-            "Discover the best DevOps practices to enhance your software delivery process and ensure continuous integration and deployment.",
-        dateCreated: "2024-04-12",
-        href: "/blogs/top-devops-practices",
-        cover: "/b4.jpg",
-    },
-    {
-        blogId: 5,
-        blogTitle: "Embracing Quantum Computing: What Developers Need to Know",
-        blogDescription:
-            "An introduction to quantum computing for developers, covering the basics, current advancements, and how to get started.",
-        dateCreated: "2024-05-20",
-        href: "/blogs/embracing-quantum-computing",
-        cover: "/b5.jpg",
     },
 ];
 

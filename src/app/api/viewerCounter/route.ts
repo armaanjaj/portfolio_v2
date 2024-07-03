@@ -17,8 +17,10 @@ export async function GET() {
         const lastViewer = await Viewer.findOne().sort({ _id: -1 });
         viewerNumber = lastViewer ? lastViewer.viewerNumber + 1 : 1;
 
-        // Delete the last 10 documents
-        await Viewer.deleteMany().sort({ _id: -1 }).limit(10);
+        // Find the last 10 documents and delete them
+        const viewersToDelete = await Viewer.find().sort({ _id: -1 }).limit(10);
+        const viewerIdsToDelete = viewersToDelete.map((viewer) => viewer._id);
+        await Viewer.deleteMany({ _id: { $in: viewerIdsToDelete } });
     } else {
         const lastViewer = await Viewer.findOne().sort({ _id: -1 });
         viewerNumber = lastViewer ? lastViewer.viewerNumber + 1 : 1;

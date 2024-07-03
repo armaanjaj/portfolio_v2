@@ -88,7 +88,7 @@ export function ProjectsCard({ project }: ProjectsCardProps) {
             </motion.div>
 
             <div className="relative h-full flex flex-col justify-between items-end py-2">
-                <h1 className="font-bold text-right w-fit xl:text-3xl 2xl:text-xl text-2xl relative -mt-2 z-[11] h-1/5">
+                <h1 className="font-bold text-right xl:text-3xl 2xl:text-xl text-2xl relative w-1/2 -mt-2 z-[11] h-1/5">
                     {project.title}
                 </h1>
 
@@ -101,21 +101,21 @@ export function ProjectsCard({ project }: ProjectsCardProps) {
                 <div className="w-fit relative z-[11] h-1/5">
                     <div className="relative flex flex-row items-center justify-end w-full h-full">
                         {project.iconLists.map((Icon, index) => (
-                            <span className="p-1 rounded-full bg-white w-10 h-10 flex flex-col justify-center items-center">
+                            <span key={index} className="p-1 rounded-full bg-white w-10 h-10 flex flex-col justify-center items-center">
                                 <Icon className="scale-150" />
                             </span>
                         ))}
                     </div>
                 </div>
 
-                <div className="absolute -left-6 -bottom-[5.5rem] -rotate-[20deg] w-fit h-full z-10 skew-y-[15deg]">
+                <div className="absolute -left-6 -bottom-[50%] -rotate-[20deg] w-fit h-full z-10 skew-y-[15deg]">
                     <Image
                         src={project.img}
                         className="w-60 h-60 rounded-tr-md pointer-events-none"
                         id="projectImg"
                         alt={project.title}
-                        width={469}
-                        height={420}
+                        width={234}
+                        height={210}
                     />
                 </div>
             </div>

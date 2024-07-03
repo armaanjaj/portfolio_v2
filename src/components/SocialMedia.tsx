@@ -1,30 +1,47 @@
 import Link from "next/link";
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { BackgroundGradientAnimation } from "./ui/background-gradient-animation";
 import { socialLinks } from "../../data";
 
 const SocialMedia = () => {
     return (
-        <BackgroundGradientAnimation className="grid grid-cols-2 grid-rows-2 gap-0 w-full h-full py-[10%] px-[10%]">
+        <BackgroundGradientAnimation className="flex flex-col justify-center items-center w-full h-full py-[10%] px-[10%]">
             <div className="absolute -left-1 -bottom-4 text-4xl z-0 text-white opacity-40 font-bold uppercase">
                 <span>socials</span>
             </div>
 
-            {socialLinks.map(
-                ({ href, label, target, icon: Icon, className, isCopy }, i) => (
+            {socialLinks
+                .filter((link) => link.isCopy)
+                .map(({ href, label, icon: Icon, className, isCopy }, i) => (
                     <StyledSocialLinks
                         key={i}
                         href={href}
                         label={label}
-                        target={target}
                         className={className}
                         isCopy={isCopy}
                     >
-                        <Icon />
+                        <Icon className="text-2xl md:text-base" />
+                        <span className="text-2xl md:text-base">Copy Email</span>
                     </StyledSocialLinks>
-                )
-            )}
+                ))}
+
+            <div className="flex flex-wrap justify-center items-center gap-4 mt-4">
+                {socialLinks
+                    .filter((link) => !link.isCopy)
+                    .map(
+                        ({ href, label, target, icon: Icon, className }, i) => (
+                            <StyledSocialLinks
+                                key={i}
+                                href={href}
+                                label={label}
+                                target={target}
+                                className={className}
+                            >
+                                <Icon className="text-2xl md:text-base" />
+                            </StyledSocialLinks>
+                        )
+                    )}
+            </div>
         </BackgroundGradientAnimation>
     );
 };
@@ -39,18 +56,17 @@ const StyledSocialLinks = ({
 }: {
     children: React.ReactNode;
     label: string;
-    target: string;
+    target?: string;
     href: string;
     className?: string;
     isCopy?: boolean;
 }) => {
-    const [hovered, setHovered] = useState(false);
     const [copied, setCopied] = useState(false);
 
     const handleCopy = () => {
         navigator.clipboard.writeText(href);
         setCopied(true);
-        setTimeout(() => setCopied(false), 2000); // Hide confirmation after 2 seconds
+        setTimeout(() => setCopied(false), 2000);
     };
 
     if (isCopy) {
@@ -58,57 +74,14 @@ const StyledSocialLinks = ({
             <button
                 aria-label={label}
                 onClick={handleCopy}
-                className={`relative group rounded-full w-fit mx-auto bg-gray-900 p-2 text-white transition-colors duration-300 text-3xl hover:text-purple-500 dark:hover:text-purple-400 ${className}`}
-                onMouseEnter={() => setHovered(true)}
-                onMouseLeave={() => setHovered(false)}
+                className={`relative flex items-center group rounded-lg p-1 w-fit mx-auto bg-white text-gray-900 transition-colors duration-300 hover:text-gray-500 ${className}`}
             >
                 {children}
-                <AnimatePresence>
-                    {hovered && !copied && (
-                        <motion.div
-                            initial={{ opacity: 0, x: -10, y: -10, scale: 0.6 }}
-                            animate={{
-                                opacity: 1,
-                                x: 0,
-                                y: 0,
-                                scale: 1,
-                                transition: {
-                                    type: "spring",
-                                    stiffness: 1000,
-                                    damping: 100,
-                                },
-                            }}
-                            exit={{ opacity: 0, x: -10, y: -10, scale: 0.6 }}
-                            className="absolute top-10 left-2 transform -translate-x-1/2 mt-2 flex flex-col items-center justify-center rounded-tl-none rounded-md bg-black z-50 shadow-xl px-4 py-2"
-                        >
-                            <div className="font-bold text-white relative z-30 text-sm">
-                                Copy to clipboard
-                            </div>
-                        </motion.div>
-                    )}
-                    {copied && (
-                        <motion.div
-                            initial={{ opacity: 0, x: -10, y: -10, scale: 0.6 }}
-                            animate={{
-                                opacity: 1,
-                                x: 0,
-                                y: 0,
-                                scale: 1,
-                                transition: {
-                                    type: "spring",
-                                    stiffness: 1000,
-                                    damping: 100,
-                                },
-                            }}
-                            exit={{ opacity: 0, x: -10, y: -10, scale: 0.6 }}
-                            className="absolute top-10 left-2 transform -translate-x-1/2 mt-2 flex flex-col items-center justify-center rounded-tl-none rounded-md bg-green-500 z-50 shadow-xl px-4 py-2"
-                        >
-                            <div className="font-bold text-white relative z-30 text-base">
-                                Copied!
-                            </div>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
+                {copied && (
+                    <span className="absolute top-full mt-2 p-1 bg-green-500 text-white text-sm rounded-md shadow-lg z-10">
+                        Copied!
+                    </span>
+                )}
             </button>
         );
     }
@@ -118,7 +91,7 @@ const StyledSocialLinks = ({
             href={href}
             aria-label={label}
             target={target}
-            className={`rounded-full w-fit mx-auto bg-gray-900 p-2 text-white hover:text-purple-500 dark:hover:text-purple-400 transition-colors duration-300 text-3xl ${className}`}
+            className={`relative flex items-center group rounded-lg p-1 w-fit mx-auto bg-white text-gray-900 transition-colors duration-300  hover:text-gray-500 ${className}`}
         >
             {children}
         </Link>

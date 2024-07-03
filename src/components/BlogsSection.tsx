@@ -1,5 +1,5 @@
-import Image from "next/image";
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import axios from "axios";
 import LoadingSpinner from "./LoadingSpinner";
@@ -16,6 +16,7 @@ const BlogsSection = () => {
     const [currentBlog, setCurrentBlog] = useState(0);
     const [blogs, setBlogs] = useState<Blog[]>([]);
     const [loading, setLoading] = useState(true);
+    const [isTabActive, setIsTabActive] = useState(true);
 
     useEffect(() => {
         const fetchBlogs = async () => {
@@ -35,42 +36,36 @@ const BlogsSection = () => {
     }, []);
 
     useEffect(() => {
-        let interval: NodeJS.Timeout;
-
-        const startInterval = () => {
-            interval = setInterval(() => {
-                setCurrentBlog((prev) => (prev + 1) % blogs.length);
-            }, 5000);
-        };
-
-        const clearExistingInterval = () => {
-            if (interval) clearInterval(interval);
-        };
-
         const handleVisibilityChange = () => {
-            if (document.visibilityState === "visible") {
-                startInterval();
+            if (document.hidden) {
+                setIsTabActive(false);
             } else {
-                clearExistingInterval();
+                setIsTabActive(true);
             }
         };
 
-        if (blogs.length > 0) {
-            startInterval();
-            document.addEventListener(
-                "visibilitychange",
-                handleVisibilityChange
-            );
-        }
+        document.addEventListener("visibilitychange", handleVisibilityChange);
 
         return () => {
-            clearExistingInterval();
             document.removeEventListener(
                 "visibilitychange",
                 handleVisibilityChange
             );
         };
-    }, [blogs]);
+    }, []);
+
+    useEffect(() => {
+        let interval: NodeJS.Timeout | undefined;
+        if (isTabActive && blogs.length > 0) {
+            interval = setInterval(() => {
+                setCurrentBlog((prev) => (prev + 1) % blogs.length);
+            }, 10000);
+        }
+
+        return () => {
+            if (interval) clearInterval(interval);
+        };
+    }, [isTabActive, blogs]);
 
     const imageVariants = {
         enter: {
@@ -108,12 +103,12 @@ const BlogsSection = () => {
     }
 
     if (blogs.length === 0) {
-        return <div>Something interisting cooking.</div>;
+        return <div>Something interesting cooking.</div>;
     }
 
     return (
-        <div className="group relative px-3 py-2 w-full h-full overflow-hidden">
-            <div className="select-none absolute right-0 -bottom-4 uppercase text-4xl z-[1] opacity-60 font-bold">
+        <div className="group relative px-3 py-2 w-full min-h-full overflow-hidden">
+            <div className="select-none absolute -top-4 left-2 uppercase text-4xl z-[1] opacity-60 font-bold">
                 <h2>blogs</h2>
             </div>
 
@@ -122,42 +117,43 @@ const BlogsSection = () => {
                     index === currentBlog ? (
                         <motion.div
                             key={blog._id}
-                            className="absolute top-0 left-0 right-0 w-full h-full flex flex-col items-center justify-center"
+                            className="relative w-full h-full flex flex-row items-center justify-center"
                             initial="enter"
                             animate="center"
                             exit="exit"
                             variants={imageVariants}
                         >
+                            <div className="w-1/2">
+                                <motion.div
+                                    className="absolute -bottom-[45%] lg:-bottom-[30%] -left-10 h-fit w-40 shadow-2xl shadow-purple-500 z-[1]"
+                                    onContextMenu={(event: any) => {
+                                        event.preventDefault();
+                                    }}
+                                    initial="enter"
+                                    animate="center"
+                                    exit="exit"
+                                    variants={imageVariants}
+                                >
+                                    <Image
+                                        src={`/blogs/${blog.imagePath}`}
+                                        width={400}
+                                        height={350}
+                                        alt="Blog Image"
+                                        className="object-cover pointer-events-none w-40 h-48 border-2 border-gray-500 select-none rounded-md"
+                                        onContextMenu={(event: any) => {
+                                            event.preventDefault();
+                                        }}
+                                    />
+                                </motion.div>
+                            </div>
                             <motion.div
-                                className="uppercase font-bold text-lg lg:text-2xl 2xl:text-3xl mx-auto text-center z-[2] h-full w-full"
+                                className="w-1/2 uppercase font-bold text-lg lg:text-2xl 2xl:text-3xl mx-auto text-center z-[2] h-full flex items-center justify-center"
                                 initial="enter"
                                 animate="center"
                                 exit="exit"
                                 variants={textVariants}
                             >
                                 <span>{blog.title}</span>
-                            </motion.div>
-
-                            <motion.div
-                                className="absolute top-1/2 sm:left-1/2 -translate-x-1/2 -translate-y-1/2 -bottom-20 left-[25%] 2xl:-bottom-16 2xl:left-[30%] right-0 w-40 h-48 shadow-2xl shadow-purple-500 z-[1]"
-                                onContextMenu={(event: any) => {
-                                    event.preventDefault();
-                                }}
-                                initial="enter"
-                                animate="center"
-                                exit="exit"
-                                variants={imageVariants}
-                            >
-                                <Image
-                                    src={"/blogs/"+blog.imagePath}
-                                    width={400}
-                                    height={350}
-                                    alt="Blog Image"
-                                    className="object-cover pointer-events-none w-40 h-48 border-2 border-gray-500 select-none rounded-md"
-                                    onContextMenu={(event: any) => {
-                                        event.preventDefault();
-                                    }}
-                                />
                             </motion.div>
                         </motion.div>
                     ) : null

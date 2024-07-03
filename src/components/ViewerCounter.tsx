@@ -39,7 +39,7 @@ const ViewerCounter = () => {
                     "/api/viewerCounter"
                 );
                 const decoded: DecodedToken = jwtDecode(data.savedViewer.token);
-                setViewerNumber(decoded.viewerNumber.toString() || "");
+                setViewerNumber(decoded.viewerNumber.toString());
                 Cookies.set("viewer_token", data.savedViewer.token, {
                     expires: 1 / 48,
                 });
@@ -59,7 +59,7 @@ const ViewerCounter = () => {
                 if (decoded.exp < currentTime) {
                     fetchViewerNumber();
                 } else {
-                    setViewerNumber(decoded.viewerNumber.toString() || "");
+                    setViewerNumber(decoded.viewerNumber.toString());
                 }
             } catch (error) {
                 setViewerNumber("");
@@ -68,21 +68,25 @@ const ViewerCounter = () => {
     }, []);
 
     return (
-        <div className="px-3 py-2 h-full flex flex-col justify-center items-center gap-2">
-            {viewerNumber !== "" && (
+        <div className="relative px-3 py-2 h-full w-full flex flex-col justify-center items-center gap-2">
+            {viewerNumber === null ? (
+                <Loader />
+            ) : (
                 <div className="text-center">
                     {viewerNumber ? (
-                        <p className="font-semibold text-green-400 text-md">
+                        <p className="font-semibold text-purple-400 text-md">
                             {`You are the ${viewerNumber}${getOrdinalSuffix(
                                 Number(viewerNumber)
                             )} viewer.`}
                         </p>
                     ) : (
-                        <Loader />
+                        <p className="font-semibold text-purple-400 text-md">
+                            Could not fetch viewer number.
+                        </p>
                     )}
                 </div>
             )}
-            <span className="text-lg lg:hidden 2xl:block text-gray-300">
+            <span className="text-lg lg:hidden 2xl:block text-gray-300 text-center">
                 I hope you are liking it here.
             </span>
         </div>
@@ -90,26 +94,9 @@ const ViewerCounter = () => {
 };
 
 const Loader = () => (
-    <svg
-        className="animate-spin h-5 w-5 text-green-400"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-    >
-        <circle
-            className="opacity-25"
-            cx="12"
-            cy="12"
-            r="10"
-            stroke="currentColor"
-            strokeWidth="4"
-        ></circle>
-        <path
-            className="opacity-75"
-            fill="currentColor"
-            d="M4 12a8 8 0 018-8v8H4z"
-        ></path>
-    </svg>
+    <div className="relative w-[90%] mx-auto h-4 bg-gray-200 rounded-lg overflow-hidden">
+        <div className="absolute inset-0 bg-purple-400 animate-pulse rounded-lg" />
+    </div>
 );
 
 export default ViewerCounter;

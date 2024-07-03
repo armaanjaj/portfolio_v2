@@ -48,7 +48,7 @@ export function DynamicProjectsCard() {
 
     return (
         <div
-            className="w-full h-full relative overflow-hidden"
+            className="w-full h-full relative overflow-hidden z-[11]"
             style={{
                 backgroundColor: projects[currentProjectIndex].colors[0],
             }}
